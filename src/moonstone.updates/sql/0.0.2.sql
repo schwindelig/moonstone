@@ -1,8 +1,9 @@
 ﻿-- 0.0.2
 
 CREATE TABLE [core].[users] (
-	id UNIQUEIDENTIFIER not null,
-	email NVARCHAR(256) not null,
+	id UNIQUEIDENTIFIER NOT NULL,
+	email NVARCHAR(256) NOT NULL,
+	passwordHash NVARCHAR(MAX) NOT NULL,
 
 	PRIMARY KEY(id)
 );

@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace moonstone.authentication.stores
 {
-    public class UserStore : IUserStore<User, Guid>
+    public class UserStore :
+        IUserStore<User, Guid>,
+        IUserPasswordStore<User, Guid>,
+        IUserLockoutStore<User, Guid>
     {
         public IUserRepository UserRepository { get; set; }
 
@@ -70,6 +73,58 @@ namespace moonstone.authentication.stores
             {
                 return Task.FromException<User>(e);
             }
+        }
+
+        public Task<int> GetAccessFailedCountAsync(User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> GetLockoutEnabledAsync(User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<DateTimeOffset> GetLockoutEndDateAsync(User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<string> GetPasswordHashAsync(User user)
+        {
+            return Task.FromResult(user.PasswordHash);
+        }
+
+        public Task<bool> HasPasswordAsync(User user)
+        {
+            return Task.FromResult(!string.IsNullOrEmpty(user.PasswordHash));
+        }
+
+        public Task<int> IncrementAccessFailedCountAsync(User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task ResetAccessFailedCountAsync(User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task SetLockoutEnabledAsync(User user, bool enabled)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task SetLockoutEndDateAsync(User user, DateTimeOffset lockoutEnd)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task SetPasswordHashAsync(User user, string passwordHash)
+        {
+            user.PasswordHash = passwordHash;
+
+            return Task.FromResult(0);
         }
 
         public Task UpdateAsync(User user)

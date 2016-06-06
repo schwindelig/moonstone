@@ -9,6 +9,8 @@ namespace moonstone.core.models
 
         public Guid Id { get; set; }
 
+        public string PasswordHash { get; set; }
+
         public string UserName
         {
             get
