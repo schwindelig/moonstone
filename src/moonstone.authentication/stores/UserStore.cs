@@ -9,7 +9,8 @@ namespace moonstone.authentication.stores
     public class UserStore :
         IUserStore<User, Guid>,
         IUserPasswordStore<User, Guid>,
-        IUserLockoutStore<User, Guid>
+        IUserLockoutStore<User, Guid>,
+        IUserTwoFactorStore<User, Guid>
     {
         public IUserRepository UserRepository { get; set; }
 
@@ -77,22 +78,31 @@ namespace moonstone.authentication.stores
 
         public Task<int> GetAccessFailedCountAsync(User user)
         {
-            throw new NotImplementedException();
+            return Task.FromResult(user.AccessFailedCount);
         }
 
         public Task<bool> GetLockoutEnabledAsync(User user)
         {
-            throw new NotImplementedException();
+            return Task.FromResult(user.IsLockoutEnabled);
         }
 
         public Task<DateTimeOffset> GetLockoutEndDateAsync(User user)
         {
-            throw new NotImplementedException();
+            return Task.FromResult(user.LockoutEndDateUtc.HasValue ?
+                new DateTimeOffset(DateTime.SpecifyKind(user.LockoutEndDateUtc.Value, DateTimeKind.Utc)) :
+                new DateTimeOffset());
         }
 
         public Task<string> GetPasswordHashAsync(User user)
         {
             return Task.FromResult(user.PasswordHash);
+        }
+
+        public Task<bool> GetTwoFactorEnabledAsync(User user)
+        {
+            return Task.FromResult(false);
+            // todo: implement two factor
+            //throw new NotImplementedException();
         }
 
         public Task<bool> HasPasswordAsync(User user)
@@ -102,22 +112,36 @@ namespace moonstone.authentication.stores
 
         public Task<int> IncrementAccessFailedCountAsync(User user)
         {
-            throw new NotImplementedException();
+            user.AccessFailedCount++;
+            this.UserRepository.Update(user);
+
+            return Task.FromResult(user.AccessFailedCount);
         }
 
         public Task ResetAccessFailedCountAsync(User user)
         {
-            throw new NotImplementedException();
+            user.AccessFailedCount = 0;
+            this.UserRepository.Update(user);
+
+            this.UserRepository.Update(user);
+
+            return Task.FromResult(0);
         }
 
         public Task SetLockoutEnabledAsync(User user, bool enabled)
         {
-            throw new NotImplementedException();
+            user.IsLockoutEnabled = enabled;
+            this.UserRepository.Update(user);
+
+            return Task.FromResult(0);
         }
 
         public Task SetLockoutEndDateAsync(User user, DateTimeOffset lockoutEnd)
         {
-            throw new NotImplementedException();
+            user.LockoutEndDateUtc = lockoutEnd.UtcDateTime;
+            this.UserRepository.Update(user);
+
+            return Task.FromResult(0);
         }
 
         public Task SetPasswordHashAsync(User user, string passwordHash)
@@ -125,6 +149,11 @@ namespace moonstone.authentication.stores
             user.PasswordHash = passwordHash;
 
             return Task.FromResult(0);
+        }
+
+        public Task SetTwoFactorEnabledAsync(User user, bool enabled)
+        {
+            throw new NotImplementedException();
         }
 
         public Task UpdateAsync(User user)

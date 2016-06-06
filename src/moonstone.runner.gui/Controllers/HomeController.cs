@@ -24,6 +24,7 @@ namespace moonstone.runner.gui.Controllers
 
             var userManager = new moonstone.authentication.managers.UserManager(userStore);
             var signInManager = new authentication.managers.SignInManager(userManager, HttpContext.GetOwinContext().Authentication);
+            var authenticationManager = HttpContext.GetOwinContext().Authentication;
 
             var user = new User()
             {
@@ -43,6 +44,8 @@ namespace moonstone.runner.gui.Controllers
             {
                 throw new Exception();
             }
+
+            authenticationManager.SignOut();
 
             return View();
         }
