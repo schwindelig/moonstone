@@ -15,9 +15,10 @@ namespace moonstone.ui.web
 
             // global
             bundles.Add(new StyleBundle("~/bundles/global/css").Include(
-                "~/ semantic/dist/semantic.css"));
+                "~/semantic/dist/semantic.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/global/js").Include(
+                "~/bower_components/jquery/dist/jquery.js",
                 "~/semantic/dist/semantic.js"));
         }
     }
