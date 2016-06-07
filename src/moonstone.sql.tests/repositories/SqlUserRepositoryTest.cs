@@ -117,7 +117,8 @@ namespace moonstone.sql.tests.repositories
         {
             var user = new User
             {
-                Email = $"{Guid.NewGuid()}@schwindelig.ch"
+                Email = $"{Guid.NewGuid()}@schwindelig.ch",
+                PasswordHash = "h4$h"
             };
 
             return user;
