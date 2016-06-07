@@ -21,10 +21,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "moonstone.dbmanage", "moons
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "moonstone.authentication.tests", "moonstone.authentication.tests\moonstone.authentication.tests.csproj", "{8EDF4429-251A-416D-BB68-93F227191BCF}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dirty", "dirty", "{CC27F842-BD7E-4208-BDFC-3198E4D630E0}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "moonstone.runner.gui", "moonstone.runner.gui\moonstone.runner.gui.csproj", "{EC9FB4B5-E839-4AA4-B6CE-58EB2092975A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,10 +55,6 @@ Global
 		{8EDF4429-251A-416D-BB68-93F227191BCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8EDF4429-251A-416D-BB68-93F227191BCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8EDF4429-251A-416D-BB68-93F227191BCF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EC9FB4B5-E839-4AA4-B6CE-58EB2092975A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EC9FB4B5-E839-4AA4-B6CE-58EB2092975A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EC9FB4B5-E839-4AA4-B6CE-58EB2092975A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EC9FB4B5-E839-4AA4-B6CE-58EB2092975A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,6 +67,5 @@ Global
 		{6D4006A8-E355-4B1B-B8C1-D2A580121226} = {E9E79590-4498-4DDF-9BF7-543A0E0FBE19}
 		{C9703547-BD90-4D25-B8D8-AC8FD589334E} = {E9E79590-4498-4DDF-9BF7-543A0E0FBE19}
 		{8EDF4429-251A-416D-BB68-93F227191BCF} = {0A9E59A1-590E-4C21-B2F2-E2DD5F207842}
-		{EC9FB4B5-E839-4AA4-B6CE-58EB2092975A} = {CC27F842-BD7E-4208-BDFC-3198E4D630E0}
 	EndGlobalSection
 EndGlobal
