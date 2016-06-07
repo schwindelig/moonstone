@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{363ED37F-A9B1-46BB-B9FC-53A90BC1886F}</ProjectGuid>
+    <ProjectGuid>{6D4006A8-E355-4B1B-B8C1-D2A580121226}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>moonstone.core</RootNamespace>
-    <AssemblyName>moonstone.core</AssemblyName>
+    <RootNamespace>moonstone.updates</RootNamespace>
+    <AssemblyName>moonstone.updates</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,10 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,16 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="exceptions\ContextExceptions.cs" />
-    <Compile Include="exceptions\IOExceptions.cs" />
-    <Compile Include="exceptions\RepositoryExceptions.cs" />
-    <Compile Include="models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="repositories\IUserRepository.cs" />
-    <Compile Include="repositories\RepositoryContainer.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <None Include="packages.config" />
+    <Content Include="sql\0.0.2.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sql\0.0.1.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
