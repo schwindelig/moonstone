@@ -12,5 +12,13 @@
     <div>
         @RenderBody()
     </div>
+
+    <!-- User Profile thing - put in partial -->
+    <div>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <a href="@Url.RouteUrl(Routes.Get().Logout)">@UIResources.Profile_Logout</a>
+        }
+    </div>
 </body>
 </html>
