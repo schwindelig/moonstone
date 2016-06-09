@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    @Styles.Render("~/bundles/global/css")
+    @Scripts.Render("~/bundles/global/js")
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+
+    <!-- User Profile thing - put in partial -->
+    <div>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <a href="@Url.RouteUrl(Routes.Get().Logout)">@UIResources.Profile_Logout</a>
+        }
+    </div>
+</body>
+</html>

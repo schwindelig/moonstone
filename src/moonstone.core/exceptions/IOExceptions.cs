@@ -3,26 +3,6 @@
 namespace moonstone.core.exceptions
 {
     [Serializable]
-    public class ReadFileException : Exception
-    {
-        public ReadFileException()
-        {
-        }
-
-        public ReadFileException(string message) : base(message)
-        {
-        }
-
-        public ReadFileException(string message, Exception inner) : base(message, inner)
-        {
-        }
-
-        protected ReadFileException(
-          System.Runtime.Serialization.SerializationInfo info,
-          System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
-    }
-
-    [Serializable]
     public class EmptyFileException : Exception
     {
         public EmptyFileException()
@@ -58,6 +38,26 @@ namespace moonstone.core.exceptions
         }
 
         protected ParseException(
+          System.Runtime.Serialization.SerializationInfo info,
+          System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
+    }
+
+    [Serializable]
+    public class ReadFileException : Exception
+    {
+        public ReadFileException()
+        {
+        }
+
+        public ReadFileException(string message) : base(message)
+        {
+        }
+
+        public ReadFileException(string message, Exception inner) : base(message, inner)
+        {
+        }
+
+        protected ReadFileException(
           System.Runtime.Serialization.SerializationInfo info,
           System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
     }

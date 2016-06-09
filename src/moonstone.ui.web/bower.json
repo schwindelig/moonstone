@@ -1,0 +1,21 @@
+{
+  "name": "moonstone.ui.web",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "david szöke"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/schwindelig/moonstone",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.4"
+  }
+}

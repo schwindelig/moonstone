@@ -5,10 +5,6 @@ using moonstone.sql.context;
 using moonstone.sql.repositories;
 using NUnit.Framework;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace moonstone.sql.tests.repositories
 {
@@ -17,6 +13,14 @@ namespace moonstone.sql.tests.repositories
     {
         protected SqlContext Context { get; set; }
         protected SqlUserRepository UserRepository { get; set; }
+
+        [SetUp]
+        public void _Setup()
+        {
+            this.Context = new SqlContext("moonstone_dev_tests", ".");
+            this.UserRepository = new SqlUserRepository(this.Context);
+            this.Context.RegisterModelDescription(ModelDescriptions.User());
+        }
 
         [Test]
         public void Create_Can_Insert_New_User()
@@ -89,14 +93,6 @@ namespace moonstone.sql.tests.repositories
             foundUser.Email.ShouldBeEquivalentTo(user.Email);
         }
 
-        [SetUp]
-        public void Setup()
-        {
-            this.Context = new SqlContext("moonstone_dev_tests", ".");
-            this.UserRepository = new SqlUserRepository(this.Context);
-            this.Context.RegisterModelDescription(ModelDescriptions.User());
-        }
-
         [Test]
         public void Update_Can_Update_User()
         {
@@ -117,7 +113,8 @@ namespace moonstone.sql.tests.repositories
         {
             var user = new User
             {
-                Email = $"{Guid.NewGuid()}@schwindelig.ch"
+                Email = $"{Guid.NewGuid()}@schwindelig.ch",
+                PasswordHash = "h4$h"
             };
 
             return user;

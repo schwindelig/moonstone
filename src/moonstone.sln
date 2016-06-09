@@ -21,6 +21,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "moonstone.dbmanage", "moons
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "moonstone.authentication.tests", "moonstone.authentication.tests\moonstone.authentication.tests.csproj", "{8EDF4429-251A-416D-BB68-93F227191BCF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "moonstone.ui.web", "moonstone.ui.web\moonstone.ui.web.csproj", "{98C3F398-E888-4EB1-857A-E6B28366F902}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "moonstone.services", "moonstone.services\moonstone.services.csproj", "{CB29A945-CE64-4A6D-95D0-287F00C6917C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "moonstone.tests.common", "moonstone.tests.common\moonstone.tests.common.csproj", "{E27742F3-C447-4694-AE6C-F6ECBFC97471}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "moonstone.resources", "moonstone.resources\moonstone.resources.csproj", "{FCF4C88D-4192-470C-81F8-747141CDA593}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +63,22 @@ Global
 		{8EDF4429-251A-416D-BB68-93F227191BCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8EDF4429-251A-416D-BB68-93F227191BCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8EDF4429-251A-416D-BB68-93F227191BCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98C3F398-E888-4EB1-857A-E6B28366F902}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98C3F398-E888-4EB1-857A-E6B28366F902}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98C3F398-E888-4EB1-857A-E6B28366F902}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98C3F398-E888-4EB1-857A-E6B28366F902}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB29A945-CE64-4A6D-95D0-287F00C6917C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB29A945-CE64-4A6D-95D0-287F00C6917C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB29A945-CE64-4A6D-95D0-287F00C6917C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB29A945-CE64-4A6D-95D0-287F00C6917C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E27742F3-C447-4694-AE6C-F6ECBFC97471}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E27742F3-C447-4694-AE6C-F6ECBFC97471}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E27742F3-C447-4694-AE6C-F6ECBFC97471}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E27742F3-C447-4694-AE6C-F6ECBFC97471}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCF4C88D-4192-470C-81F8-747141CDA593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCF4C88D-4192-470C-81F8-747141CDA593}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCF4C88D-4192-470C-81F8-747141CDA593}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCF4C88D-4192-470C-81F8-747141CDA593}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,5 +91,9 @@ Global
 		{6D4006A8-E355-4B1B-B8C1-D2A580121226} = {E9E79590-4498-4DDF-9BF7-543A0E0FBE19}
 		{C9703547-BD90-4D25-B8D8-AC8FD589334E} = {E9E79590-4498-4DDF-9BF7-543A0E0FBE19}
 		{8EDF4429-251A-416D-BB68-93F227191BCF} = {0A9E59A1-590E-4C21-B2F2-E2DD5F207842}
+		{98C3F398-E888-4EB1-857A-E6B28366F902} = {E9E79590-4498-4DDF-9BF7-543A0E0FBE19}
+		{CB29A945-CE64-4A6D-95D0-287F00C6917C} = {E9E79590-4498-4DDF-9BF7-543A0E0FBE19}
+		{E27742F3-C447-4694-AE6C-F6ECBFC97471} = {0A9E59A1-590E-4C21-B2F2-E2DD5F207842}
+		{FCF4C88D-4192-470C-81F8-747141CDA593} = {E9E79590-4498-4DDF-9BF7-543A0E0FBE19}
 	EndGlobalSection
 EndGlobal
