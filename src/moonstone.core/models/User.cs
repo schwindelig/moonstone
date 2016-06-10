@@ -7,6 +7,7 @@ namespace moonstone.core.models
     {
         public int AccessFailedCount { get; set; }
 
+        public string Culture { get; set; }
         public string Email { get; set; }
         public Guid Id { get; set; }
         public bool IsLockoutEnabled { get; set; }

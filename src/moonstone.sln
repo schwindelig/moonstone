@@ -29,6 +29,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "moonstone.tests.common", "m
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "moonstone.resources", "moonstone.resources\moonstone.resources.csproj", "{FCF4C88D-4192-470C-81F8-747141CDA593}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "moonstone.core.tests", "moonstone.core.tests\moonstone.core.tests.csproj", "{FCF060D3-3B94-4E00-AABC-785AB5A90D0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "moonstone.services.tests", "moonstone.services.tests\moonstone.services.tests.csproj", "{9B8BEC41-86EA-43AA-8998-292E402177F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +83,14 @@ Global
 		{FCF4C88D-4192-470C-81F8-747141CDA593}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCF4C88D-4192-470C-81F8-747141CDA593}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCF4C88D-4192-470C-81F8-747141CDA593}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCF060D3-3B94-4E00-AABC-785AB5A90D0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCF060D3-3B94-4E00-AABC-785AB5A90D0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCF060D3-3B94-4E00-AABC-785AB5A90D0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCF060D3-3B94-4E00-AABC-785AB5A90D0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B8BEC41-86EA-43AA-8998-292E402177F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B8BEC41-86EA-43AA-8998-292E402177F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B8BEC41-86EA-43AA-8998-292E402177F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B8BEC41-86EA-43AA-8998-292E402177F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -95,5 +107,7 @@ Global
 		{CB29A945-CE64-4A6D-95D0-287F00C6917C} = {E9E79590-4498-4DDF-9BF7-543A0E0FBE19}
 		{E27742F3-C447-4694-AE6C-F6ECBFC97471} = {0A9E59A1-590E-4C21-B2F2-E2DD5F207842}
 		{FCF4C88D-4192-470C-81F8-747141CDA593} = {E9E79590-4498-4DDF-9BF7-543A0E0FBE19}
+		{FCF060D3-3B94-4E00-AABC-785AB5A90D0F} = {0A9E59A1-590E-4C21-B2F2-E2DD5F207842}
+		{9B8BEC41-86EA-43AA-8998-292E402177F6} = {0A9E59A1-590E-4C21-B2F2-E2DD5F207842}
 	EndGlobalSection
 EndGlobal
