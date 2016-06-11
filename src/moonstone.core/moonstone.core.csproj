@@ -56,6 +56,7 @@
     <Compile Include="repositories\IUserRepository.cs" />
     <Compile Include="repositories\RepositoryHub.cs" />
     <Compile Include="services\IEnvironmentService.cs" />
+    <Compile Include="services\IGroupService.cs" />
     <Compile Include="services\ILoginService.cs" />
     <Compile Include="services\IUserService.cs" />
     <Compile Include="services\results\LoginResult.cs" />

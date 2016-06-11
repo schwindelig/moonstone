@@ -55,7 +55,8 @@ namespace moonstone.tests.common
             return new ServiceHub(
                 loginService: null, /* until we figure out how to get the crap owin context thingy working in nunit */
                 environmentService: new EnvironmentService(repoHub, new CultureNinja()),
-                userService: new UserService(repoHub));
+                userService: new UserService(repoHub),
+                groupService: new GroupService(repoHub));
         }
 
         public static SqlContext GetSqlContext()
