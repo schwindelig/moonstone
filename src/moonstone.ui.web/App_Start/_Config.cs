@@ -32,6 +32,7 @@
 
     public class Routes
     {
+        public string Error = "error";
         public string Home = "home";
         public string Logout = "logout";
 

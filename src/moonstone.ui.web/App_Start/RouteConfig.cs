@@ -22,6 +22,10 @@ namespace moonstone.ui.web
             routes.MapRoute(
                 name: Config.Get().Routes.Logout,
                 url: "User/Logout");
+
+            routes.MapRoute(
+                name: Config.Get().Routes.Error,
+                url: "Error/Index");
         }
     }
 }
