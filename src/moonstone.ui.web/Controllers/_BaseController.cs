@@ -30,5 +30,15 @@ namespace moonstone.ui.web.Controllers
 
             base.OnActionExecuting(filterContext);
         }
+
+        protected override void OnException(ExceptionContext filterContext)
+        {
+            var exception = filterContext.Exception;
+            filterContext.ExceptionHandled = true;
+
+            filterContext.Result = this.RedirectToRoute(Routes.Get().Error);
+
+            base.OnException(filterContext);
+        }
     }
 }
