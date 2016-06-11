@@ -60,6 +60,7 @@ namespace moonstone.ui.web
 
             // Repositories
             container.Register<IUserRepository, SqlUserRepository>();
+            container.Register<IGroupRepository, SqlGroupRepository>();
 
             // Authentication
             container.Register<IUserStore<User, Guid>, UserStore>();

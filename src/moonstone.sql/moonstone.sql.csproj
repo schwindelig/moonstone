@@ -52,6 +52,7 @@
     <Compile Include="context\SqlVersion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="repositories\SqlBaseRepository.cs" />
+    <Compile Include="repositories\SqlGroupRepository.cs" />
     <Compile Include="repositories\SqlUserRepository.cs" />
   </ItemGroup>
   <ItemGroup>

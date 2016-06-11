@@ -2,12 +2,15 @@
 {
     public class RepositoryHub
     {
+        public IGroupRepository GroupRepository { get; set; }
         public IUserRepository UserRepository { get; set; }
 
         public RepositoryHub(
-            IUserRepository userRepository)
+            IUserRepository userRepository,
+            IGroupRepository groupRepository)
         {
             this.UserRepository = userRepository;
+            this.GroupRepository = groupRepository;
         }
     }
 }

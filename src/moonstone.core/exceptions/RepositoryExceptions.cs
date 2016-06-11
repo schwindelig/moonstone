@@ -3,6 +3,26 @@
 namespace moonstone.core.exceptions
 {
     [Serializable]
+    public class CreateGroupException : Exception
+    {
+        public CreateGroupException()
+        {
+        }
+
+        public CreateGroupException(string message) : base(message)
+        {
+        }
+
+        public CreateGroupException(string message, Exception inner) : base(message, inner)
+        {
+        }
+
+        protected CreateGroupException(
+          System.Runtime.Serialization.SerializationInfo info,
+          System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
+    }
+
+    [Serializable]
     public class CreateUserException : Exception
     {
         public CreateUserException()
@@ -38,6 +58,26 @@ namespace moonstone.core.exceptions
         }
 
         protected DeleteUserException(
+          System.Runtime.Serialization.SerializationInfo info,
+          System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
+    }
+
+    [Serializable]
+    public class QueryGroupsException : Exception
+    {
+        public QueryGroupsException()
+        {
+        }
+
+        public QueryGroupsException(string message) : base(message)
+        {
+        }
+
+        public QueryGroupsException(string message, Exception inner) : base(message, inner)
+        {
+        }
+
+        protected QueryGroupsException(
           System.Runtime.Serialization.SerializationInfo info,
           System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
     }

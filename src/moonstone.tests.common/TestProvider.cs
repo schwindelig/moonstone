@@ -19,6 +19,17 @@ namespace moonstone.tests.common
         private const string SERVER = ".";
         private const string USER = "moonstone_ui";
 
+        public static Group GetNewGroup(Guid createUserId)
+        {
+            return new Group
+            {
+                CreateDateUtc = DateTime.UtcNow,
+                CreateUserId = createUserId,
+                Description = "Description " + Guid.NewGuid(),
+                Name = $"Group {Guid.NewGuid().ToString()}"
+            };
+        }
+
         public static User GetNewUser()
         {
             var user = new User
@@ -35,7 +46,8 @@ namespace moonstone.tests.common
         public static RepositoryHub GetRepositoryHub(SqlContext context)
         {
             return new RepositoryHub(
-                new SqlUserRepository(context));
+                new SqlUserRepository(context),
+                new SqlGroupRepository(context));
         }
 
         public static ServiceHub GetServiceHub(RepositoryHub repoHub)
@@ -50,6 +62,7 @@ namespace moonstone.tests.common
         {
             var context = new SqlContext(DATABASE, SERVER, USER, PASSWORD);
             context.RegisterModelDescription(ModelDescriptions.User());
+            context.RegisterModelDescription(ModelDescriptions.Group());
 
             return context;
         }
