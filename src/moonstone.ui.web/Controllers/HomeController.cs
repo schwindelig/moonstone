@@ -18,10 +18,11 @@ namespace moonstone.ui.web.Controllers
         [AllowAnonymous]
         public string Seeed()
         {
-            var res = this.Current.AuthenticationHub.UserManager.CreateAsync(
+            var res = this.Current.Authentication.UserManager.CreateAsync(
                 new core.models.User
                 {
-                    Email = "david.szoeke@gmail.com"
+                    Email = "david.szoeke@gmail.com",
+                    Culture = "en-US"
                 }, "mooT$12!d9");
 
             if (!res.Result.Succeeded)

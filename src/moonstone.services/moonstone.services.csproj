@@ -45,6 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="services\_BaseService.cs" />
+    <Compile Include="services\EnvironmentService.cs" />
+    <Compile Include="services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\moonstone.authentication\moonstone.authentication.csproj">
@@ -59,9 +62,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="services\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

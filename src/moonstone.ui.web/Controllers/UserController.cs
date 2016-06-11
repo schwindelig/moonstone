@@ -15,6 +15,14 @@ namespace moonstone.ui.web.Controllers
         }
 
         [HttpGet]
+        public ActionResult ChangeCulture(string culture)
+        {
+            this.Current.Services.UserService.SetCulture(this.Current.UserId.Value, culture);
+
+            return this.RedirectToRoute(Routes.Get().Home);
+        }
+
+        [HttpGet]
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
@@ -33,7 +41,7 @@ namespace moonstone.ui.web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = this.Current.ServiceHub.LoginService.Login(
+                var result = this.Current.Services.LoginService.Login(
                     username: model.Email,
                     password: model.Password,
                     isPersistent: false,
@@ -68,7 +76,7 @@ namespace moonstone.ui.web.Controllers
         [HttpGet]
         public ActionResult Logout()
         {
-            this.Current.ServiceHub.LoginService.Logout();
+            this.Current.Services.LoginService.Logout();
 
             return RedirectToRoute(Routes.Get().Logout);
         }
