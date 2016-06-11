@@ -25,7 +25,8 @@ namespace moonstone.tests.common
             {
                 Email = $"{Guid.NewGuid()}@schwindelig.ch",
                 PasswordHash = "h4$h",
-                Culture = NEW_USER_DEFAULT_LANGUAGE
+                Culture = NEW_USER_DEFAULT_LANGUAGE,
+                CreateDateUtc = DateTime.UtcNow
             };
 
             return user;

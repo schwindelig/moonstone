@@ -7,6 +7,7 @@ namespace moonstone.core.models
     {
         public int AccessFailedCount { get; set; }
 
+        public DateTime CreateDateUtc { get; set; }
         public string Culture { get; set; }
         public string Email { get; set; }
         public Guid Id { get; set; }
