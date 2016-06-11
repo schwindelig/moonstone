@@ -22,9 +22,9 @@ namespace moonstone.services.tests
         [SetUp]
         public void _SetUp()
         {
-            var ctx = Provider.GetSqlContext();
-            var repoHub = Provider.GetRepositoryHub(ctx);
-            var serviceHub = Provider.GetServiceHub(repoHub);
+            var ctx = TestProvider.GetSqlContext();
+            var repoHub = TestProvider.GetRepositoryHub(ctx);
+            var serviceHub = TestProvider.GetServiceHub(repoHub);
             this.EnvironmentService = serviceHub.EnvironmentService;
         }
 

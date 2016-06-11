@@ -1,6 +1,8 @@
 ﻿using moonstone.core.exceptions;
 using moonstone.core.i18n;
+using moonstone.core.repositories;
 using moonstone.core.services;
+using moonstone.services.services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +11,12 @@ using System.Threading.Tasks;
 
 namespace moonstone.services
 {
-    public class EnvironmentService : IEnvironmentService
+    public class EnvironmentService : BaseService, IEnvironmentService
     {
         protected CultureNinja CultureNinja { get; set; }
 
-        public EnvironmentService(CultureNinja cultureNinja)
+        public EnvironmentService(RepositoryHub repoHub, CultureNinja cultureNinja)
+            : base(repoHub)
         {
             this.CultureNinja = cultureNinja;
         }

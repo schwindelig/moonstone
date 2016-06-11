@@ -11,8 +11,9 @@ using System;
 
 namespace moonstone.tests.common
 {
-    public class Provider
+    public class TestProvider
     {
+        public const string NEW_USER_DEFAULT_LANGUAGE = "de-CH";
         private const string DATABASE = "moonstone_dev_tests";
         private const string PASSWORD = "moonstone_ui";
         private const string SERVER = ".";
@@ -24,7 +25,7 @@ namespace moonstone.tests.common
             {
                 Email = $"{Guid.NewGuid()}@schwindelig.ch",
                 PasswordHash = "h4$h",
-                Culture = "de-CH"
+                Culture = NEW_USER_DEFAULT_LANGUAGE
             };
 
             return user;
@@ -40,7 +41,8 @@ namespace moonstone.tests.common
         {
             return new ServiceHub(
                 loginService: null, /* until we figure out how to get the crap owin context thingy working in nunit */
-                environmentService: new EnvironmentService(new CultureNinja()));
+                environmentService: new EnvironmentService(repoHub, new CultureNinja()),
+                userService: new UserService(repoHub));
         }
 
         public static SqlContext GetSqlContext()

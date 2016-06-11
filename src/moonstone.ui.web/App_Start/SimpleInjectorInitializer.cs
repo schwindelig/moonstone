@@ -10,6 +10,7 @@ namespace moonstone.ui.web
     using core.services;
     using Microsoft.AspNet.Identity;
     using Microsoft.Owin.Security;
+    using services;
     using SimpleInjector;
     using SimpleInjector.Integration.Web;
     using SimpleInjector.Integration.Web.Mvc;
@@ -67,6 +68,8 @@ namespace moonstone.ui.web
 
             // Services
             container.Register<ILoginService, LoginService>();
+            container.Register<IEnvironmentService, EnvironmentService>();
+            container.Register<IUserService, UserService>();
         }
     }
 }

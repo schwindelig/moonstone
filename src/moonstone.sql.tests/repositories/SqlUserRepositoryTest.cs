@@ -26,7 +26,7 @@ namespace moonstone.sql.tests.repositories
         [Test]
         public void Create_Can_Insert_New_User()
         {
-            var user = Provider.GetNewUser();
+            var user = TestProvider.GetNewUser();
             bool doesNotExistBeforeCreation = false;
             bool existsAfterCreation = false;
 
@@ -41,7 +41,7 @@ namespace moonstone.sql.tests.repositories
         [Test]
         public void Create_Returns_Id()
         {
-            var user = Provider.GetNewUser();
+            var user = TestProvider.GetNewUser();
 
             var id = this.UserRepository.Create(user);
 
@@ -51,7 +51,7 @@ namespace moonstone.sql.tests.repositories
         [Test]
         public void Delete_Can_Delete_User()
         {
-            var user = Provider.GetNewUser();
+            var user = TestProvider.GetNewUser();
             this.UserRepository.Create(user);
 
             bool userExistsBeforeDelete = false;
@@ -71,7 +71,7 @@ namespace moonstone.sql.tests.repositories
         [Test]
         public void GetByEmail_Can_Find_User()
         {
-            var user = Provider.GetNewUser();
+            var user = TestProvider.GetNewUser();
 
             this.UserRepository.Create(user);
 
@@ -84,7 +84,7 @@ namespace moonstone.sql.tests.repositories
         [Test]
         public void GetById_Can_Find_User()
         {
-            var user = Provider.GetNewUser();
+            var user = TestProvider.GetNewUser();
 
             var id = this.UserRepository.Create(user);
 
@@ -97,11 +97,11 @@ namespace moonstone.sql.tests.repositories
         [Test]
         public void Update_Can_Update_User()
         {
-            var user = Provider.GetNewUser();
+            var user = TestProvider.GetNewUser();
             Guid userId = this.UserRepository.Create(user);
             user = this.UserRepository.GetByEmail(user.Email);
 
-            user.Email = $"edited_{Provider.GetNewUser().Email}";
+            user.Email = $"edited_{TestProvider.GetNewUser().Email}";
 
             this.UserRepository.Update(user);
 
