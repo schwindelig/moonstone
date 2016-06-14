@@ -19,6 +19,18 @@ namespace moonstone.tests.common
         private const string SERVER = ".";
         private const string USER = "moonstone_ui";
 
+        public static Group CreateNewGroup(IGroupRepository groupRepo, Guid creatorId)
+        {
+            return groupRepo.GetById(
+                groupRepo.Create(new Group { CreateDateUtc = DateTime.UtcNow, Description = "Description ...", CreateUserId = creatorId, Name = Guid.NewGuid().ToString() }));
+        }
+
+        public static User CreateNewUser(IUserRepository userRepo)
+        {
+            return userRepo.GetById(
+                userRepo.Create(TestProvider.GetNewUser()));
+        }
+
         public static Group GetNewGroup(Guid createUserId)
         {
             return new Group
