@@ -61,6 +61,15 @@ namespace moonstone.resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create a new group.
+        /// </summary>
+        public static string Group_Create_Button_Create {
+            get {
+                return ResourceManager.GetString("Group_Create_Button_Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to sign out.
         /// </summary>
         public static string Profile_Logout {

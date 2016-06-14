@@ -50,6 +50,16 @@ namespace moonstone.services.tests
         }
 
         [Test]
+        public void Create_AddsCreatorToGroup()
+        {
+            var creator = TestProvider.CreateNewUser(this.Repositories.UserRepository);
+
+            var group = this.GroupService.CreateGroup(TestProvider.GetNewGroup(creator.Id));
+
+            this.GroupService.GetUsersForGroup(group.Id).Single().ShouldBeEquivalentTo(creator);
+        }
+
+        [Test]
         public void Create_CanCreateGroup()
         {
             var group = this.GroupService.CreateGroup(

@@ -24,7 +24,11 @@ namespace moonstone.services
         public Group CreateGroup(Group group)
         {
             var groupId = this.Repositories.GroupRepository.Create(group);
-            return this.GetGroupById(groupId);
+            group = this.GetGroupById(groupId);
+
+            this.AddUserToGroup(group.CreateUserId, group.Id);
+
+            return group;
         }
 
         public Group GetGroupById(Guid groupId)

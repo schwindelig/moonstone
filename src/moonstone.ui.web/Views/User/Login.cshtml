@@ -8,15 +8,15 @@
 
 @Html.ValidationSummary()
 
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
 
-        @Html.LabelFor(m => m.Email)
-        @Html.EditorFor(m => m.Email)
+    @Html.LabelFor(m => m.Email)
+    @Html.EditorFor(m => m.Email)
 
-        @Html.LabelFor(m => m.Password)
-        @Html.PasswordFor(m => m.Password)
+    @Html.LabelFor(m => m.Password)
+    @Html.PasswordFor(m => m.Password)
 
-        <input type="submit" value="login" />
-    }
+    <input type="submit" value="login" />
+}
