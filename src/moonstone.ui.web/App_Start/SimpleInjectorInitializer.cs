@@ -53,6 +53,7 @@ namespace moonstone.ui.web
 
                     ctx.RegisterModelDescription<User>(sql.configs.ModelDescriptions.User());
                     ctx.RegisterModelDescription<Group>(sql.configs.ModelDescriptions.Group());
+                    ctx.RegisterModelDescription<GroupUser>(sql.configs.ModelDescriptions.GroupUser());
 
                     return ctx;
                 },

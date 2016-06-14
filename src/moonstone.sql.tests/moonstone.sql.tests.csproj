@@ -61,6 +61,7 @@
     <Compile Include="context\SqlScriptTest.cs" />
     <Compile Include="context\SqlVersionTest.cs" />
     <Compile Include="repositories\SqlGroupRepositoryTest.cs" />
+    <Compile Include="repositories\SqlGroupUserRepositoryTest.cs" />
     <Compile Include="repositories\SqlUserRepositoryTest.cs" />
   </ItemGroup>
   <ItemGroup>

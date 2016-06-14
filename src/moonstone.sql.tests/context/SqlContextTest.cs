@@ -699,7 +699,7 @@ namespace moonstone.sql.test.context
 
             string command = validContext.InsertCommand<TypeC>();
 
-            command.Should().Be($"INSERT INTO [{schema}].[{tableName}] ([integer], [name]) OUTPUT inserted.Id VALUES (@Integer, @Name);");
+            command.Should().Be($"INSERT INTO [{schema}].[{tableName}] ([integer], [name]) OUTPUT inserted.id VALUES (@Integer, @Name);");
         }
 
         [Test]

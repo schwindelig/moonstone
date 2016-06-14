@@ -47,7 +47,8 @@ namespace moonstone.tests.common
         {
             return new RepositoryHub(
                 new SqlUserRepository(context),
-                new SqlGroupRepository(context));
+                new SqlGroupRepository(context),
+                new SqlGroupUserRepository(context));
         }
 
         public static ServiceHub GetServiceHub(RepositoryHub repoHub)
@@ -64,6 +65,7 @@ namespace moonstone.tests.common
             var context = new SqlContext(DATABASE, SERVER, USER, PASSWORD);
             context.RegisterModelDescription(ModelDescriptions.User());
             context.RegisterModelDescription(ModelDescriptions.Group());
+            context.RegisterModelDescription(ModelDescriptions.GroupUser());
 
             return context;
         }

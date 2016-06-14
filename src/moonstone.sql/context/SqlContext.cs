@@ -538,11 +538,14 @@ namespace moonstone.sql.context
 
                 var fieldNames = propertiesForInsert.Select(p => $"[{p.FieldName}]");
                 var propertyNames = propertiesForInsert.Select(p => $"@{p.PropertyName}");
+                var pkFields = modelDescription.Properties().Where(p => p.IsPrimaryKey).Select(f => $"inserted.{f.FieldName}");
 
-                string command =
-                    $"INSERT INTO [{modelDescription.Schema}].[{modelDescription.Table}] ({string.Join(", ", fieldNames)}) "
-                    + $"OUTPUT inserted.Id " // todo: this will break as soon as we have an pk-column which isn't named 'id'
-                    + $"VALUES ({string.Join(", ", propertyNames)});";
+                string command = $"INSERT INTO [{modelDescription.Schema}].[{modelDescription.Table}] ({string.Join(", ", fieldNames)}) ";
+
+                //command += $"OUTPUT inserted.Id "; // todo: this will break as soon as we have an pk-column which isn't named 'id'
+                command += $"OUTPUT {string.Join(", ", pkFields)} ";
+
+                command += $"VALUES ({string.Join(", ", propertyNames)});";
 
                 return command;
             }
@@ -825,7 +828,7 @@ namespace moonstone.sql.context
             var modelDescription = this.GetModelDescription<T>();
             if (modelDescription != null)
             {
-                var properties = modelDescription.Properties().Where(p => !p.IgnoreOnUpdate && !p.IsKey);
+                var properties = modelDescription.Properties().Where(p => !p.IgnoreOnUpdate && !p.IsPrimaryKey);
 
                 string assigns = string.Join(", ", properties.Select(p => $"[{p.FieldName}] = @{p.PropertyName}"));
 

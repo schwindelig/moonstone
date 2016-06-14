@@ -11,6 +11,14 @@ namespace moonstone.sql.configs
                 .Auto("core", "groups");
         }
 
+        public static SqlModelDescription<GroupUser> GroupUser()
+        {
+            return SqlModelDescription<GroupUser>
+                .Auto("core", "groupUsers")
+                .WithPrimaryKey(p => p.GroupId)
+                .WithPrimaryKey(p => p.UserId);
+        }
+
         public static SqlModelDescription<User> User()
         {
             return SqlModelDescription<User>
