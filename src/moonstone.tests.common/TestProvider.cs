@@ -42,14 +42,15 @@ namespace moonstone.tests.common
             };
         }
 
-        public static User GetNewUser()
+        public static User GetNewUser(Guid? currentGroupId = null)
         {
             var user = new User
             {
                 Email = $"{Guid.NewGuid()}@schwindelig.ch",
                 PasswordHash = "h4$h",
                 Culture = NEW_USER_DEFAULT_LANGUAGE,
-                CreateDateUtc = DateTime.UtcNow
+                CreateDateUtc = DateTime.UtcNow,
+                CurrentGroupId = currentGroupId
             };
 
             return user;
@@ -65,11 +66,16 @@ namespace moonstone.tests.common
 
         public static ServiceHub GetServiceHub(RepositoryHub repoHub)
         {
+            ILoginService loginService = null;
+            IEnvironmentService environmentService = new EnvironmentService(repoHub, new CultureNinja());
+            IGroupService groupService = new GroupService(repoHub);
+            IUserService userService = new UserService(repoHub, groupService);
+
             return new ServiceHub(
-                loginService: null, /* until we figure out how to get the crap owin context thingy working in nunit */
-                environmentService: new EnvironmentService(repoHub, new CultureNinja()),
-                userService: new UserService(repoHub),
-                groupService: new GroupService(repoHub));
+                loginService: loginService, /* until we figure out how to get the crap owin context thingy working in nunit */
+                environmentService: environmentService,
+                userService: userService,
+                groupService: groupService);
         }
 
         public static SqlContext GetSqlContext()

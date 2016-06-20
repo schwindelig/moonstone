@@ -44,6 +44,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="sql\0.0.7.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="sql\0.0.6.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -19,7 +19,8 @@ namespace moonstone.ui.web.Controllers
         {
             this.Current.Services.UserService.SetCulture(this.Current.UserId.Value, culture);
 
-            return this.RedirectToRoute(Routes.Get().Home);
+            var res = Routes.Home;
+            return this.RedirectToAction(res.Action, res.Controller);
         }
 
         [HttpGet]
@@ -49,7 +50,8 @@ namespace moonstone.ui.web.Controllers
 
                 if (result == LoginResult.Success)
                 {
-                    return this.RedirectToRoute(Routes.Get().Home);
+                    var res = Routes.Home;
+                    return this.RedirectToAction(res.Action, res.Controller);
                 }
                 else
                 {
@@ -78,7 +80,30 @@ namespace moonstone.ui.web.Controllers
         {
             this.Current.Services.LoginService.Logout();
 
-            return RedirectToRoute(Routes.Get().Logout);
+            var res = Routes.Logout;
+            return RedirectToAction(res.Action, res.Controller);
+        }
+
+        [HttpGet]
+        public ActionResult SelectGroup()
+        {
+            var model = new SelectGroupViewModel();
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult SelectGroup(SelectGroupViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                this.Current.Services.UserService.SetCurrentGroup(userId: Current.UserId.Value, groupId: model.GroupId);
+
+                var res = Routes.Home;
+                return this.RedirectToAction(res.Action, res.Controller);
+            }
+
+            return View(model);
         }
     }
 }

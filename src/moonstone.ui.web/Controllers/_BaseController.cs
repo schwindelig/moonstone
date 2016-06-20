@@ -26,6 +26,15 @@ namespace moonstone.ui.web.Controllers
             if (User.Identity.IsAuthenticated)
             {
                 this.Current.Services.EnvironmentService.SetCulture(this.Current.User.Culture);
+
+                var logoutRoute = Routes.Logout;
+                var selectGroupRoute = Routes.SelectGroup;
+                if (!this.Current.User.CurrentGroupId.HasValue &&
+                    !selectGroupRoute.IsSame(filterContext.RouteData) &&
+                    !logoutRoute.IsSame(filterContext.RouteData))
+                {
+                    filterContext.Result = this.RedirectToAction(selectGroupRoute.Action, selectGroupRoute.Controller);
+                }
             }
 
             base.OnActionExecuting(filterContext);
@@ -36,7 +45,8 @@ namespace moonstone.ui.web.Controllers
             var exception = filterContext.Exception;
             filterContext.ExceptionHandled = true;
 
-            filterContext.Result = this.RedirectToRoute(Routes.Get().Error);
+            var res = Routes.Error;
+            filterContext.Result = this.RedirectToAction(res.Action, res.Controller);
 
             base.OnException(filterContext);
         }

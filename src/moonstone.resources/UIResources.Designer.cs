@@ -77,5 +77,23 @@ namespace moonstone.resources {
                 return ResourceManager.GetString("Profile_Logout", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Group.
+        /// </summary>
+        public static string Profile_SelectGroup {
+            get {
+                return ResourceManager.GetString("Profile_SelectGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home.
+        /// </summary>
+        public static string Site_Home {
+            get {
+                return ResourceManager.GetString("Site_Home", resourceCulture);
+            }
+        }
     }
 }

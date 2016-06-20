@@ -126,4 +126,7 @@
   <data name="Login_RequiresVerification" xml:space="preserve">
     <value>Your account requires verification. Please check your inbox.</value>
   </data>
+  <data name="User_SelectGroup_NotInGroup" xml:space="preserve">
+    <value>Not a valid group.</value>
+  </data>
 </root>

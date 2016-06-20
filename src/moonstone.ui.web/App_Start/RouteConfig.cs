@@ -15,17 +15,10 @@ namespace moonstone.ui.web
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
 
-            routes.MapRoute(
-                name: Config.Get().Routes.Home,
-                url: "Home/Index");
-
-            routes.MapRoute(
-                name: Config.Get().Routes.Logout,
-                url: "User/Logout");
-
-            routes.MapRoute(
-                name: Config.Get().Routes.Error,
-                url: "Error/Index");
+            Routes.Home.Map(routes);
+            Routes.Error.Map(routes);
+            Routes.Logout.Map(routes);
+            Routes.SelectGroup.Map(routes);
         }
     }
 }

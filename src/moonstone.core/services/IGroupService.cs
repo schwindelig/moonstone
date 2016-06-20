@@ -18,5 +18,7 @@ namespace moonstone.core.services
         IEnumerable<Group> GetGroupsForUser(Guid userId);
 
         IEnumerable<User> GetUsersForGroup(Guid groupId);
+
+        bool IsUserInGroup(Guid userId, Guid groupId);
     }
 }

@@ -86,5 +86,14 @@ namespace moonstone.resources {
                 return ResourceManager.GetString("Login_RequiresVerification", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not a valid group..
+        /// </summary>
+        public static string User_SelectGroup_NotInGroup {
+            get {
+                return ResourceManager.GetString("User_SelectGroup_NotInGroup", resourceCulture);
+            }
+        }
     }
 }

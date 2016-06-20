@@ -116,5 +116,27 @@ namespace moonstone.services.tests
 
             userForGroup.ShouldBeEquivalentTo(new User[] { user1, user2 });
         }
+
+        [Test]
+        public void IsUserInGroup_ReturnsFalse_IfUserIsNotInGroup()
+        {
+            var creator = TestProvider.CreateNewUser(this.Repositories.UserRepository);
+            var group = TestProvider.CreateNewGroup(this.Repositories.GroupRepository, creator.Id);
+            var user = TestProvider.CreateNewUser(this.Repositories.UserRepository);
+
+            this.GroupService.IsUserInGroup(user.Id, group.Id).Should().BeFalse();
+        }
+
+        [Test]
+        public void IsUserInGroup_ReturnsTrue_IfUserIsInGroup()
+        {
+            var creator = TestProvider.CreateNewUser(this.Repositories.UserRepository);
+            var group = TestProvider.CreateNewGroup(this.Repositories.GroupRepository, creator.Id);
+            var user = TestProvider.CreateNewUser(this.Repositories.UserRepository);
+
+            this.GroupService.AddUserToGroup(user.Id, group.Id);
+
+            this.GroupService.IsUserInGroup(user.Id, group.Id).Should().BeTrue();
+        }
     }
 }

@@ -175,6 +175,7 @@
     <Compile Include="Models\Current.cs" />
     <Compile Include="Models\ViewModels\Group\CreateGroupViewModel.cs" />
     <Compile Include="Models\ViewModels\User\LoginViewModel.cs" />
+    <Compile Include="Models\ViewModels\User\SelectGroupViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -187,6 +188,7 @@
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Group\Create.cshtml" />
+    <Content Include="Views\User\SelectGroup.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -123,4 +123,10 @@
   <data name="Profile_Logout" xml:space="preserve">
     <value>abmelden</value>
   </data>
+  <data name="Profile_SelectGroup" xml:space="preserve">
+    <value>Gruppe auswählen</value>
+  </data>
+  <data name="Site_Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
 </root>

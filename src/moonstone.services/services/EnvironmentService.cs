@@ -1,4 +1,5 @@
 ﻿using moonstone.core.exceptions;
+using moonstone.core.exceptions.serviceExceptions;
 using moonstone.core.i18n;
 using moonstone.core.repositories;
 using moonstone.core.services;

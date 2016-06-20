@@ -17,7 +17,9 @@
     <div>
         @if (User.Identity.IsAuthenticated)
         {
-            <a href="@Url.RouteUrl(Routes.Get().Logout)">@UIResources.Profile_Logout</a>
+            <a href="@Url.RouteUrl(Routes.Home)">@UIResources.Site_Home</a>
+            <a href="@Url.RouteUrl(Routes.Logout)">@UIResources.Profile_Logout</a>
+            <a href="@Url.RouteUrl(Routes.SelectGroup)">@UIResources.Profile_SelectGroup</a>
         }
     </div>
 </body>

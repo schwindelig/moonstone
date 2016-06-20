@@ -49,5 +49,12 @@ namespace moonstone.services
 
             return assigns.Select(a => this.Repositories.UserRepository.GetById(a.UserId));
         }
+
+        public bool IsUserInGroup(Guid userId, Guid groupId)
+        {
+            var groups = this.GetGroupsForUser(userId);
+
+            return groups.Any(g => g.Id == groupId);
+        }
     }
 }

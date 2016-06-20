@@ -39,7 +39,8 @@ namespace moonstone.ui.web.Controllers
                         Name = model.Name
                     });
 
-                return this.RedirectToRoute(Routes.Get().Home);
+                var res = Routes.Home;
+                return this.RedirectToAction(res.Action, res.Controller);
             }
 
             return View(model);

@@ -1,0 +1,16 @@
+﻿@model moonstone.ui.web.Models.ViewModels.User.SelectGroupViewModel
+
+@{
+    ViewBag.Title = "SelectGroup";
+}
+
+<h2>SelectGroup</h2>
+
+@Html.ValidationSummary()
+
+@using (Html.BeginForm())
+{
+    // Request user groups via ajax
+
+    @Html.TextBoxFor(m => m.GroupId)
+}
