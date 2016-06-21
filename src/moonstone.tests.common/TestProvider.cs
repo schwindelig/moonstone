@@ -19,6 +19,12 @@ namespace moonstone.tests.common
         private const string SERVER = ".";
         private const string USER = "moonstone_ui";
 
+        public static Category CreateNewCategory(ICategoryRepository categoryRepository, Guid createUserId, Guid groupId)
+        {
+            return categoryRepository.GetById(
+                categoryRepository.Create(TestProvider.GetNewCategory(createUserId, groupId)));
+        }
+
         public static Group CreateNewGroup(IGroupRepository groupRepo, Guid creatorId)
         {
             return groupRepo.GetById(
@@ -29,6 +35,18 @@ namespace moonstone.tests.common
         {
             return userRepo.GetById(
                 userRepo.Create(TestProvider.GetNewUser()));
+        }
+
+        public static Category GetNewCategory(Guid createUserId, Guid groupId)
+        {
+            var category = new Category()
+            {
+                CreateUserId = createUserId,
+                GroupId = groupId,
+                Name = $"Category_{Guid.NewGuid()}"
+            };
+
+            return category;
         }
 
         public static Group GetNewGroup(Guid createUserId)
@@ -61,7 +79,8 @@ namespace moonstone.tests.common
             return new RepositoryHub(
                 new SqlUserRepository(context),
                 new SqlGroupRepository(context),
-                new SqlGroupUserRepository(context));
+                new SqlGroupUserRepository(context),
+                new SqlCategoryRepository(context));
         }
 
         public static ServiceHub GetServiceHub(RepositoryHub repoHub)
@@ -70,12 +89,14 @@ namespace moonstone.tests.common
             IEnvironmentService environmentService = new EnvironmentService(repoHub, new CultureNinja());
             IGroupService groupService = new GroupService(repoHub);
             IUserService userService = new UserService(repoHub, groupService);
+            ICategoryService categoryService = new CategoryService(repoHub, groupService);
 
             return new ServiceHub(
                 loginService: loginService, /* until we figure out how to get the crap owin context thingy working in nunit */
                 environmentService: environmentService,
                 userService: userService,
-                groupService: groupService);
+                groupService: groupService,
+                categoryService: categoryService);
         }
 
         public static SqlContext GetSqlContext()
@@ -84,6 +105,7 @@ namespace moonstone.tests.common
             context.RegisterModelDescription(ModelDescriptions.User());
             context.RegisterModelDescription(ModelDescriptions.Group());
             context.RegisterModelDescription(ModelDescriptions.GroupUser());
+            context.RegisterModelDescription(ModelDescriptions.Category());
 
             return context;
         }

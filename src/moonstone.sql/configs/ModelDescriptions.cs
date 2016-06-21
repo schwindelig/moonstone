@@ -5,6 +5,12 @@ namespace moonstone.sql.configs
 {
     public abstract class ModelDescriptions
     {
+        public static SqlModelDescription<Category> Category()
+        {
+            return SqlModelDescription<Category>
+                .Auto("core", "categories");
+        }
+
         public static SqlModelDescription<Group> Group()
         {
             return SqlModelDescription<Group>

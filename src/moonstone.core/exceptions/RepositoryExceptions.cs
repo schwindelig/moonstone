@@ -1,7 +1,27 @@
 ﻿using System;
 
-namespace moonstone.core.exceptions
+namespace moonstone.core.exceptions.repositoryExceptions
 {
+    [Serializable]
+    public class CreateCategoryException : Exception
+    {
+        public CreateCategoryException()
+        {
+        }
+
+        public CreateCategoryException(string message) : base(message)
+        {
+        }
+
+        public CreateCategoryException(string message, Exception inner) : base(message, inner)
+        {
+        }
+
+        protected CreateCategoryException(
+          System.Runtime.Serialization.SerializationInfo info,
+          System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
+    }
+
     [Serializable]
     public class CreateGroupException : Exception
     {
@@ -78,6 +98,26 @@ namespace moonstone.core.exceptions
         }
 
         protected DeleteUserException(
+          System.Runtime.Serialization.SerializationInfo info,
+          System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
+    }
+
+    [Serializable]
+    public class QueryCategoriesException : Exception
+    {
+        public QueryCategoriesException()
+        {
+        }
+
+        public QueryCategoriesException(string message) : base(message)
+        {
+        }
+
+        public QueryCategoriesException(string message, Exception inner) : base(message, inner)
+        {
+        }
+
+        protected QueryCategoriesException(
           System.Runtime.Serialization.SerializationInfo info,
           System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
     }

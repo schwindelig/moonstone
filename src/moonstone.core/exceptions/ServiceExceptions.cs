@@ -3,6 +3,26 @@
 namespace moonstone.core.exceptions.serviceExceptions
 {
     [Serializable]
+    public class CreateCategoryException : Exception
+    {
+        public CreateCategoryException()
+        {
+        }
+
+        public CreateCategoryException(string message) : base(message)
+        {
+        }
+
+        public CreateCategoryException(string message, Exception inner) : base(message, inner)
+        {
+        }
+
+        protected CreateCategoryException(
+          System.Runtime.Serialization.SerializationInfo info,
+          System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
+    }
+
+    [Serializable]
     public class LoginException : Exception
     {
         public LoginException()

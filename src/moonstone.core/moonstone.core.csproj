@@ -49,14 +49,17 @@
     <Compile Include="exceptions\RepositoryExceptions.cs" />
     <Compile Include="exceptions\ServiceExceptions.cs" />
     <Compile Include="i18n\CultureNinja.cs" />
+    <Compile Include="models\Category.cs" />
     <Compile Include="models\Group.cs" />
     <Compile Include="models\GroupUser.cs" />
     <Compile Include="models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="repositories\ICategoryRepository.cs" />
     <Compile Include="repositories\IGroupRepository.cs" />
     <Compile Include="repositories\IGroupUserRepository.cs" />
     <Compile Include="repositories\IUserRepository.cs" />
     <Compile Include="repositories\RepositoryHub.cs" />
+    <Compile Include="services\ICategoryService.cs" />
     <Compile Include="services\IEnvironmentService.cs" />
     <Compile Include="services\IGroupService.cs" />
     <Compile Include="services\ILoginService.cs" />

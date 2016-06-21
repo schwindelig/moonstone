@@ -11,42 +11,41 @@ using System.Threading.Tasks;
 
 namespace moonstone.sql.repositories
 {
-    public class SqlGroupRepository : SqlBaseRepository, IGroupRepository
+    public class SqlCategoryRepository : SqlBaseRepository, ICategoryRepository
     {
-        public SqlGroupRepository(SqlContext context)
-            : base(context)
+        public SqlCategoryRepository(SqlContext context) : base(context)
         {
         }
 
-        public Guid Create(Group group)
+        public Guid Create(Category category)
         {
             try
             {
                 return this.Context.RunCommand<Guid>(
-                    command: this.Context.InsertCommand<Group>(),
-                    param: group,
+                    command: this.Context.InsertCommand<Category>(),
+                    param: category,
                     mode: CommandMode.Write).Single();
             }
             catch (Exception e)
             {
-                throw new CreateGroupException(
-                    $"Failed to create group '{group.Name}'.", e);
+                throw new CreateCategoryException(
+                    $"Failed to create category.", e);
             }
         }
 
-        public Group GetById(Guid id)
+        public Category GetById(Guid id)
         {
             try
             {
-                return this.Context.RunCommand<Group>(
-                    command: this.Context.SelectCommand<Group>("id = @Id"),
+                return this.Context.RunCommand<Category>(
+                    command: this.Context.SelectCommand<Category>("id = @Id"),
                     param: new { Id = id },
                     mode: CommandMode.Read).Single();
             }
             catch (Exception e)
             {
-                throw new QueryGroupsException(
-                    $"Failed to find group with id {id}.", e);
+                throw new QueryCategoriesException(
+                    $"Failed to get category with id {id}", e);
             }
         }
     }
