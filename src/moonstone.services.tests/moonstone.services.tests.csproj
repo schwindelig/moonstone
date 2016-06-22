@@ -48,6 +48,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BankAccountServiceTest.cs" />
     <Compile Include="CategoryServiceTest.cs" />
     <Compile Include="EnvironmentServiceTest.cs" />
     <Compile Include="GroupServiceTest.cs" />

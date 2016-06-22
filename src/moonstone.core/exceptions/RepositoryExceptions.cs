@@ -3,6 +3,26 @@
 namespace moonstone.core.exceptions.repositoryExceptions
 {
     [Serializable]
+    public class CreateBankAccountException : Exception
+    {
+        public CreateBankAccountException()
+        {
+        }
+
+        public CreateBankAccountException(string message) : base(message)
+        {
+        }
+
+        public CreateBankAccountException(string message, Exception inner) : base(message, inner)
+        {
+        }
+
+        protected CreateBankAccountException(
+          System.Runtime.Serialization.SerializationInfo info,
+          System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
+    }
+
+    [Serializable]
     public class CreateCategoryException : Exception
     {
         public CreateCategoryException()
@@ -98,6 +118,26 @@ namespace moonstone.core.exceptions.repositoryExceptions
         }
 
         protected DeleteUserException(
+          System.Runtime.Serialization.SerializationInfo info,
+          System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
+    }
+
+    [Serializable]
+    public class QueryBankAccountException : Exception
+    {
+        public QueryBankAccountException()
+        {
+        }
+
+        public QueryBankAccountException(string message) : base(message)
+        {
+        }
+
+        public QueryBankAccountException(string message, Exception inner) : base(message, inner)
+        {
+        }
+
+        protected QueryBankAccountException(
           System.Runtime.Serialization.SerializationInfo info,
           System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
     }

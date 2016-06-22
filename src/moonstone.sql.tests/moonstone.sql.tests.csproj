@@ -60,6 +60,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="context\SqlScriptTest.cs" />
     <Compile Include="context\SqlVersionTest.cs" />
+    <Compile Include="repositories\SqlBankAccountRepositoryTest.cs" />
     <Compile Include="repositories\SqlCategoryRepositoryTest.cs" />
     <Compile Include="repositories\SqlGroupRepositoryTest.cs" />
     <Compile Include="repositories\SqlGroupUserRepositoryTest.cs" />

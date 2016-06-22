@@ -51,6 +51,7 @@
     <Compile Include="context\SqlScript.cs" />
     <Compile Include="context\SqlVersion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="repositories\SqlBankAccountRepository.cs" />
     <Compile Include="repositories\SqlBaseRepository.cs" />
     <Compile Include="repositories\SqlCategoryRepository.cs" />
     <Compile Include="repositories\SqlGroupRepository.cs" />

@@ -19,6 +19,12 @@ namespace moonstone.tests.common
         private const string SERVER = ".";
         private const string USER = "moonstone_ui";
 
+        public static BankAccount CreateNewBankAccount(IBankAccountRepository bankAccountRepo, BankAccount bankAccount)
+        {
+            return bankAccountRepo.GetById(
+                bankAccountRepo.Create(bankAccount));
+        }
+
         public static Category CreateNewCategory(ICategoryRepository categoryRepository, Guid createUserId, Guid groupId)
         {
             return categoryRepository.GetById(
@@ -35,6 +41,17 @@ namespace moonstone.tests.common
         {
             return userRepo.GetById(
                 userRepo.Create(TestProvider.GetNewUser()));
+        }
+
+        public static BankAccount GetNewBankAccount(Guid createUserId, Guid groupId)
+        {
+            return new BankAccount
+            {
+                CreateUserId = createUserId,
+                Description = $"Description_{Guid.NewGuid()}",
+                GroupId = groupId,
+                Name = $"BankAccount_{Guid.NewGuid()}"
+            };
         }
 
         public static Category GetNewCategory(Guid createUserId, Guid groupId)
@@ -80,7 +97,8 @@ namespace moonstone.tests.common
                 new SqlUserRepository(context),
                 new SqlGroupRepository(context),
                 new SqlGroupUserRepository(context),
-                new SqlCategoryRepository(context));
+                new SqlCategoryRepository(context),
+                new SqlBankAccountRepository(context));
         }
 
         public static ServiceHub GetServiceHub(RepositoryHub repoHub)
@@ -90,13 +108,15 @@ namespace moonstone.tests.common
             IGroupService groupService = new GroupService(repoHub);
             IUserService userService = new UserService(repoHub, groupService);
             ICategoryService categoryService = new CategoryService(repoHub, groupService);
+            IBankAccountService bankAccountservice = new BankAccountService(repoHub, groupService);
 
             return new ServiceHub(
                 loginService: loginService, /* until we figure out how to get the crap owin context thingy working in nunit */
                 environmentService: environmentService,
                 userService: userService,
                 groupService: groupService,
-                categoryService: categoryService);
+                categoryService: categoryService,
+                bankAccountService: bankAccountservice);
         }
 
         public static SqlContext GetSqlContext()
@@ -106,6 +126,7 @@ namespace moonstone.tests.common
             context.RegisterModelDescription(ModelDescriptions.Group());
             context.RegisterModelDescription(ModelDescriptions.GroupUser());
             context.RegisterModelDescription(ModelDescriptions.Category());
+            context.RegisterModelDescription(ModelDescriptions.BankAccount());
 
             return context;
         }

@@ -93,6 +93,7 @@ namespace moonstone.ui.web.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult SelectGroup(SelectGroupViewModel model)
         {
             if (ModelState.IsValid)
