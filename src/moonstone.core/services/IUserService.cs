@@ -14,5 +14,7 @@ namespace moonstone.core.services
         User GetUserById(Guid userId);
 
         void SetCulture(Guid userId, string culture);
+
+        void SetCurrentGroup(Guid userId, Guid groupId);
     }
 }

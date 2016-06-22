@@ -1,7 +1,87 @@
 ﻿using System;
 
-namespace moonstone.core.exceptions
+namespace moonstone.core.exceptions.repositoryExceptions
 {
+    [Serializable]
+    public class CreateBankAccountException : Exception
+    {
+        public CreateBankAccountException()
+        {
+        }
+
+        public CreateBankAccountException(string message) : base(message)
+        {
+        }
+
+        public CreateBankAccountException(string message, Exception inner) : base(message, inner)
+        {
+        }
+
+        protected CreateBankAccountException(
+          System.Runtime.Serialization.SerializationInfo info,
+          System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
+    }
+
+    [Serializable]
+    public class CreateCategoryException : Exception
+    {
+        public CreateCategoryException()
+        {
+        }
+
+        public CreateCategoryException(string message) : base(message)
+        {
+        }
+
+        public CreateCategoryException(string message, Exception inner) : base(message, inner)
+        {
+        }
+
+        protected CreateCategoryException(
+          System.Runtime.Serialization.SerializationInfo info,
+          System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
+    }
+
+    [Serializable]
+    public class CreateGroupException : Exception
+    {
+        public CreateGroupException()
+        {
+        }
+
+        public CreateGroupException(string message) : base(message)
+        {
+        }
+
+        public CreateGroupException(string message, Exception inner) : base(message, inner)
+        {
+        }
+
+        protected CreateGroupException(
+          System.Runtime.Serialization.SerializationInfo info,
+          System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
+    }
+
+    [Serializable]
+    public class CreateGroupUserException : Exception
+    {
+        public CreateGroupUserException()
+        {
+        }
+
+        public CreateGroupUserException(string message) : base(message)
+        {
+        }
+
+        public CreateGroupUserException(string message, Exception inner) : base(message, inner)
+        {
+        }
+
+        protected CreateGroupUserException(
+          System.Runtime.Serialization.SerializationInfo info,
+          System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
+    }
+
     [Serializable]
     public class CreateUserException : Exception
     {
@@ -38,6 +118,86 @@ namespace moonstone.core.exceptions
         }
 
         protected DeleteUserException(
+          System.Runtime.Serialization.SerializationInfo info,
+          System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
+    }
+
+    [Serializable]
+    public class QueryBankAccountException : Exception
+    {
+        public QueryBankAccountException()
+        {
+        }
+
+        public QueryBankAccountException(string message) : base(message)
+        {
+        }
+
+        public QueryBankAccountException(string message, Exception inner) : base(message, inner)
+        {
+        }
+
+        protected QueryBankAccountException(
+          System.Runtime.Serialization.SerializationInfo info,
+          System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
+    }
+
+    [Serializable]
+    public class QueryCategoriesException : Exception
+    {
+        public QueryCategoriesException()
+        {
+        }
+
+        public QueryCategoriesException(string message) : base(message)
+        {
+        }
+
+        public QueryCategoriesException(string message, Exception inner) : base(message, inner)
+        {
+        }
+
+        protected QueryCategoriesException(
+          System.Runtime.Serialization.SerializationInfo info,
+          System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
+    }
+
+    [Serializable]
+    public class QueryGroupsException : Exception
+    {
+        public QueryGroupsException()
+        {
+        }
+
+        public QueryGroupsException(string message) : base(message)
+        {
+        }
+
+        public QueryGroupsException(string message, Exception inner) : base(message, inner)
+        {
+        }
+
+        protected QueryGroupsException(
+          System.Runtime.Serialization.SerializationInfo info,
+          System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
+    }
+
+    [Serializable]
+    public class QueryGroupUsersException : Exception
+    {
+        public QueryGroupUsersException()
+        {
+        }
+
+        public QueryGroupUsersException(string message) : base(message)
+        {
+        }
+
+        public QueryGroupUsersException(string message, Exception inner) : base(message, inner)
+        {
+        }
+
+        protected QueryGroupUsersException(
           System.Runtime.Serialization.SerializationInfo info,
           System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
     }

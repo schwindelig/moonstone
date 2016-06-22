@@ -28,9 +28,11 @@ namespace moonstone.sql.context
 
         public static SqlModelDescription<T> Auto(string schema, string table)
         {
-            var key_fields = new string[] { "id" };
+            var primaryKey_Fields = new string[] { "id" };
             var ignore_insert_fields = new string[] { "id" };
             var ignore_update_fields = new string[] { "id" };
+
+            //var foreignKey_Suffixes = new string[] { "Id" };
 
             var type = typeof(T);
             var properties = type.GetProperties();
@@ -45,7 +47,9 @@ namespace moonstone.sql.context
                     continue;
                 }
 
-                bool isKey = key_fields.Contains(property.Name, StringComparer.InvariantCulture);
+                bool isPrimaryKey = primaryKey_Fields.Contains(property.Name, StringComparer.InvariantCultureIgnoreCase);
+
+                //bool isForeignKey = foreignKey_Suffixes.Any(suff => property.Name.EndsWith(suff, StringComparison.InvariantCulture));
 
                 bool ignoreOnInsert = ignore_insert_fields.Contains(property.Name, StringComparer.InvariantCultureIgnoreCase);
 
@@ -54,7 +58,7 @@ namespace moonstone.sql.context
                 var propertyDescription = new SqlPropertyDescription(
                     propertyName: property.Name,
                     fieldName: property.Name.ToLower(),
-                    isKey: isKey,
+                    isKey: isPrimaryKey,
                     ignoreOnInsert: ignoreOnInsert,
                     ignoreOnUpdate: ignoreOnUpdate);
 
@@ -80,6 +84,15 @@ namespace moonstone.sql.context
         public void RegisterProperty(SqlPropertyDescription propertyDescription)
         {
             this.PropertyDescriptions.Add(propertyDescription);
+        }
+
+        public SqlModelDescription<T> WithPrimaryKey<TProperty>(Expression<Func<T, TProperty>> prop)
+        {
+            var registerProperty = this.Property(prop);
+
+            registerProperty.IsPrimaryKey = true;
+
+            return this;
         }
 
         public SqlModelDescription<T> WithReadOnly<TProperty>(Expression<Func<T, TProperty>> prop)
@@ -118,9 +131,9 @@ namespace moonstone.sql.context
         public bool IgnoreOnUpdate { get; set; }
 
         /// <summary>
-        /// Controls if the property will be treated as key
+        /// Controls if the property will be treated as primary key
         /// </summary>
-        public bool IsKey { get; set; }
+        public bool IsPrimaryKey { get; set; }
 
         /// <summary>
         /// Name of the database table field
@@ -136,7 +149,7 @@ namespace moonstone.sql.context
         {
             this.PropertyName = propertyName;
             this.FieldName = fieldName;
-            this.IsKey = isKey;
+            this.IsPrimaryKey = isKey;
             this.IgnoreOnInsert = ignoreOnInsert;
             this.IgnoreOnUpdate = ignoreOnUpdate;
         }

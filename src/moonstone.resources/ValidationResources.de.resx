@@ -126,4 +126,7 @@
   <data name="Login_RequiresVerification" xml:space="preserve">
     <value>Ihr Account muss bestätigt werden. Bitte prüfen Sie Ihren Posteingang.</value>
   </data>
+  <data name="User_SelectGroup_NotInGroup" xml:space="preserve">
+    <value>Keine valide Gruppe.</value>
+  </data>
 </root>

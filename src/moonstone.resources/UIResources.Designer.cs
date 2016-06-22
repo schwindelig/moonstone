@@ -61,11 +61,56 @@ namespace moonstone.resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create a new bank account.
+        /// </summary>
+        public static string BankAccount_Create_Button_Create {
+            get {
+                return ResourceManager.GetString("BankAccount_Create_Button_Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create a new category.
+        /// </summary>
+        public static string Category_Create_Button_Create {
+            get {
+                return ResourceManager.GetString("Category_Create_Button_Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create a new group.
+        /// </summary>
+        public static string Group_Create_Button_Create {
+            get {
+                return ResourceManager.GetString("Group_Create_Button_Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to sign out.
         /// </summary>
         public static string Profile_Logout {
             get {
                 return ResourceManager.GetString("Profile_Logout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Group.
+        /// </summary>
+        public static string Profile_SelectGroup {
+            get {
+                return ResourceManager.GetString("Profile_SelectGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home.
+        /// </summary>
+        public static string Site_Home {
+            get {
+                return ResourceManager.GetString("Site_Home", resourceCulture);
             }
         }
     }

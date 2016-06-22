@@ -1,4 +1,5 @@
 ﻿using moonstone.ui.web.Models;
+using System;
 using System.Web.Mvc;
 
 namespace moonstone.ui.web.Controllers
@@ -22,7 +23,8 @@ namespace moonstone.ui.web.Controllers
                 new core.models.User
                 {
                     Email = "david.szoeke@gmail.com",
-                    Culture = "en-US"
+                    Culture = "en-US",
+                    CreateDateUtc = DateTime.UtcNow
                 }, "mooT$12!d9");
 
             if (!res.Result.Succeeded)

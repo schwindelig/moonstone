@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using moonstone.core.repositories;
 using moonstone.core.services;
 using moonstone.tests.common;
 using NUnit.Framework;
@@ -13,6 +14,8 @@ namespace moonstone.services.tests
     [TestFixture]
     public class UserServiceTests
     {
+        protected IGroupService GroupService { get; set; }
+        protected RepositoryHub Repos { get; set; }
         protected IUserService UserService { get; set; }
 
         [SetUp]
@@ -22,6 +25,8 @@ namespace moonstone.services.tests
             var repoHub = TestProvider.GetRepositoryHub(context);
             var serviceHub = TestProvider.GetServiceHub(repoHub);
             this.UserService = serviceHub.UserService;
+            this.GroupService = serviceHub.GroupService;
+            this.Repos = repoHub;
         }
 
         [Test]
@@ -63,6 +68,21 @@ namespace moonstone.services.tests
 
             user = this.UserService.GetUserById(user.Id);
             user.Culture.ShouldBeEquivalentTo(newLanguage);
+        }
+
+        [Test]
+        public void SetCurrentGroup_CanSetCurrentGroup()
+        {
+            var user = TestProvider.GetNewUser();
+            user = this.UserService.CreateUser(user);
+
+            user.CurrentGroupId.Should().NotHaveValue();
+
+            var group = this.GroupService.CreateGroup(TestProvider.GetNewGroup(user.Id));
+
+            this.UserService.SetCurrentGroup(user.Id, group.Id);
+            user = this.UserService.GetUserById(user.Id);
+            user.CurrentGroupId.ShouldBeEquivalentTo(group.Id);
         }
     }
 }

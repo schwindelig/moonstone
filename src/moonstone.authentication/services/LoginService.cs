@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity.Owin;
 using moonstone.authentication.managers;
 using moonstone.core.exceptions;
+using moonstone.core.exceptions.serviceExceptions;
 using moonstone.core.services;
 using moonstone.core.services.results;
 using System;

@@ -1,19 +1,24 @@
 ﻿using moonstone.core.repositories;
+using moonstone.core.services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace moonstone.services.services
+namespace moonstone.services
 {
     public class BaseService
     {
-        protected RepositoryHub RepoHub { get; set; }
+        private RepositoryHub repoHub;
+
+        protected RepositoryHub Repositories { get; set; }
+
+        protected ServiceHub Services { get; set; }
 
         public BaseService(RepositoryHub repoHub)
         {
-            this.RepoHub = repoHub;
+            this.Repositories = repoHub;
         }
     }
 }

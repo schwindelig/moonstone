@@ -2,12 +2,24 @@
 {
     public class RepositoryHub
     {
-        public IUserRepository UserRepository { get; set; }
+        public IBankAccountRepository BankAccountRepository { get; protected set; }
+        public ICategoryRepository CategoryRepository { get; protected set; }
+        public IGroupRepository GroupRepository { get; protected set; }
+        public IGroupUserRepository GroupUserRepository { get; protected set; }
+        public IUserRepository UserRepository { get; protected set; }
 
         public RepositoryHub(
-            IUserRepository userRepository)
+            IUserRepository userRepository,
+            IGroupRepository groupRepository,
+            IGroupUserRepository groupUserRepository,
+            ICategoryRepository categoryRepository,
+            IBankAccountRepository bankAccountRepository)
         {
             this.UserRepository = userRepository;
+            this.GroupRepository = groupRepository;
+            this.GroupUserRepository = groupUserRepository;
+            this.CategoryRepository = categoryRepository;
+            this.BankAccountRepository = bankAccountRepository;
         }
     }
 }

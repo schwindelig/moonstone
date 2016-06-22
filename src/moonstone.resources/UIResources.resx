@@ -117,7 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BankAccount_Create_Button_Create" xml:space="preserve">
+    <value>Create a new bank account</value>
+  </data>
+  <data name="Category_Create_Button_Create" xml:space="preserve">
+    <value>Create a new category</value>
+  </data>
+  <data name="Group_Create_Button_Create" xml:space="preserve">
+    <value>Create a new group</value>
+  </data>
   <data name="Profile_Logout" xml:space="preserve">
     <value>sign out</value>
+  </data>
+  <data name="Profile_SelectGroup" xml:space="preserve">
+    <value>Select Group</value>
+  </data>
+  <data name="Site_Home" xml:space="preserve">
+    <value>Home</value>
   </data>
 </root>
