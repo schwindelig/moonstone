@@ -1,0 +1,24 @@
+﻿@model moonstone.ui.web.Models.ViewModels.BankAccount.CreateBankAccountViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@Html.ValidationSummary()
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.LabelFor(m => m.Name)
+    @Html.TextBoxFor(m => m.Name)
+    @Html.ValidationMessageFor(m => m.Name)
+
+    @Html.LabelFor(m => m.Description)
+    @Html.TextBoxFor(m => m.Description)
+    @Html.ValidationMessageFor(m => m.Description)
+
+    <input type="submit" value="@UIResources.BankAccount_Create_Button_Create" />
+}

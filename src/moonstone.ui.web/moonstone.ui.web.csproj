@@ -164,6 +164,7 @@
     <Compile Include="App_Start\_Config.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\SimpleInjectorInitializer.cs" />
+    <Compile Include="Controllers\BankAccountController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\GroupController.cs" />
@@ -174,6 +175,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Current.cs" />
+    <Compile Include="Models\ViewModels\BankAccount\CreateBankAccountViewModel.cs" />
     <Compile Include="Models\ViewModels\Category\CreateCategoryViewModel.cs" />
     <Compile Include="Models\ViewModels\Group\CreateGroupViewModel.cs" />
     <Compile Include="Models\ViewModels\User\LoginViewModel.cs" />
@@ -192,6 +194,7 @@
     <Content Include="Views\Group\Create.cshtml" />
     <Content Include="Views\User\SelectGroup.cshtml" />
     <Content Include="Views\Category\Create.cshtml" />
+    <Content Include="Views\BankAccount\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
