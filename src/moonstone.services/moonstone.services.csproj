@@ -48,6 +48,7 @@
     <Compile Include="services\BankAccountService.cs" />
     <Compile Include="services\CategoryService.cs" />
     <Compile Include="services\GroupService.cs" />
+    <Compile Include="services\TransactionService.cs" />
     <Compile Include="services\_BaseService.cs" />
     <Compile Include="services\EnvironmentService.cs" />
     <Compile Include="services\UserService.cs" />

@@ -4,6 +4,7 @@ using moonstone.core.models;
 using moonstone.core.repositories;
 using moonstone.core.services;
 using moonstone.services;
+using moonstone.services.services;
 using moonstone.sql.configs;
 using moonstone.sql.context;
 using moonstone.sql.repositories;
@@ -98,7 +99,8 @@ namespace moonstone.tests.common
                 new SqlGroupRepository(context),
                 new SqlGroupUserRepository(context),
                 new SqlCategoryRepository(context),
-                new SqlBankAccountRepository(context));
+                new SqlBankAccountRepository(context),
+                new SqlTransactionRepository(context));
         }
 
         public static ServiceHub GetServiceHub(RepositoryHub repoHub)
@@ -109,6 +111,7 @@ namespace moonstone.tests.common
             IUserService userService = new UserService(repoHub, groupService);
             ICategoryService categoryService = new CategoryService(repoHub, groupService);
             IBankAccountService bankAccountservice = new BankAccountService(repoHub, groupService);
+            ITransactionService transactionService = new TransactionService(repoHub);
 
             return new ServiceHub(
                 loginService: loginService, /* until we figure out how to get the crap owin context thingy working in nunit */
@@ -116,7 +119,8 @@ namespace moonstone.tests.common
                 userService: userService,
                 groupService: groupService,
                 categoryService: categoryService,
-                bankAccountService: bankAccountservice);
+                bankAccountService: bankAccountservice,
+                transactionService: transactionService);
         }
 
         public static SqlContext GetSqlContext()
