@@ -168,6 +168,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\GroupController.cs" />
+    <Compile Include="Controllers\TransactionController.cs" />
     <Compile Include="Controllers\_BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -178,6 +179,7 @@
     <Compile Include="Models\ViewModels\BankAccount\CreateBankAccountViewModel.cs" />
     <Compile Include="Models\ViewModels\Category\CreateCategoryViewModel.cs" />
     <Compile Include="Models\ViewModels\Group\CreateGroupViewModel.cs" />
+    <Compile Include="Models\ViewModels\Transaction\CreateTransactionViewModel.cs" />
     <Compile Include="Models\ViewModels\User\LoginViewModel.cs" />
     <Compile Include="Models\ViewModels\User\SelectGroupViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -195,6 +197,7 @@
     <Content Include="Views\User\SelectGroup.cshtml" />
     <Content Include="Views\Category\Create.cshtml" />
     <Content Include="Views\BankAccount\Create.cshtml" />
+    <Content Include="Views\Transaction\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

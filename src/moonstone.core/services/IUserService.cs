@@ -11,6 +11,8 @@ namespace moonstone.core.services
     {
         User CreateUser(User user);
 
+        User GetUerByEmail(string email);
+
         User GetUserById(Guid userId);
 
         void SetCulture(Guid userId, string culture);

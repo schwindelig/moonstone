@@ -27,6 +27,11 @@ namespace moonstone.services
             return this.Repositories.UserRepository.GetById(userId);
         }
 
+        public User GetUerByEmail(string email)
+        {
+            return this.Repositories.UserRepository.GetByEmail(email);
+        }
+
         public User GetUserById(Guid userId)
         {
             return this.Repositories.UserRepository.GetById(userId);

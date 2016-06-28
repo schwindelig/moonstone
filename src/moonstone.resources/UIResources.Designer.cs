@@ -113,5 +113,14 @@ namespace moonstone.resources {
                 return ResourceManager.GetString("Site_Home", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create a new transaction.
+        /// </summary>
+        public static string Transaction_Create_Button_Create {
+            get {
+                return ResourceManager.GetString("Transaction_Create_Button_Create", resourceCulture);
+            }
+        }
     }
 }

@@ -135,4 +135,7 @@
   <data name="Site_Home" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="Transaction_Create_Button_Create" xml:space="preserve">
+    <value>Create a new transaction</value>
+  </data>
 </root>
