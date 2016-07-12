@@ -111,6 +111,7 @@ namespace moonstone.tests.common
             ICategoryService categoryService = new CategoryService(repoHub, groupService);
             IBankAccountService bankAccountservice = new BankAccountService(repoHub, groupService);
             ITransactionService transactionService = new TransactionService(repoHub);
+            ICurrencyService currencyService = new CurrencyService(repoHub);
 
             return new ServiceHub(
                 loginService: loginService, /* until we figure out how to get the crap owin context thingy working in nunit */
@@ -119,7 +120,8 @@ namespace moonstone.tests.common
                 groupService: groupService,
                 categoryService: categoryService,
                 bankAccountService: bankAccountservice,
-                transactionService: transactionService);
+                transactionService: transactionService,
+                currencyService: currencyService);
         }
 
         public static SqlContext GetSqlContext()

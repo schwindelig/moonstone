@@ -9,13 +9,22 @@ namespace moonstone.ui.web
         {
             BundleTable.EnableOptimizations = true;
 
-            // global
-            bundles.Add(new StyleBundle("~/bundles/global/css").Include(
-                "~/semantic/dist/semantic.css"));
-
+            // global js
             bundles.Add(new ScriptBundle("~/bundles/global/js").Include(
                 "~/bower_components/jquery/dist/jquery.js",
-                "~/semantic/dist/semantic.js"));
+                "~/bower_components/jquery-serialize-object/dist/jquery.serialize-object.min.js",
+                "~/bower_components/toastr/toastr.min.js",
+                "~/js/site.js"));
+
+            // jquery validate with unobtrusive
+            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+                        "~/bower_components/jquery-validation/dist/jquery.validate.min.js",
+                        "~/bower_components/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"));
+
+            // global css
+            bundles.Add(new StyleBundle("~/bundles/global/css").Include(
+                "~/bower_components/toastr/toastr.min.css",
+                "~/css/site.css"));
         }
     }
 }

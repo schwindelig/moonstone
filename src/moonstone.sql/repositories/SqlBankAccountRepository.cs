@@ -33,6 +33,22 @@ namespace moonstone.sql.repositories
             }
         }
 
+        public IEnumerable<BankAccount> GetBankAccountsForGroup(Guid groupId)
+        {
+            try
+            {
+                return this.Context.RunCommand<BankAccount>(
+                    command: this.Context.SelectCommand<BankAccount>("groupId = @GroupId"),
+                    param: new { GroupId = groupId },
+                    mode: CommandMode.Read);
+            }
+            catch (Exception e)
+            {
+                throw new QueryBankAccountException(
+                    $"Failed to get bank accounts for group with Id {groupId}.", e);
+            }
+        }
+
         public BankAccount GetById(Guid id)
         {
             try

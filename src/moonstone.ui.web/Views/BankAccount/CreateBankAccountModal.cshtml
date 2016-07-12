@@ -1,0 +1,51 @@
+﻿@model moonstone.ui.web.Models.ViewModels.BankAccount.CreateBankAccountViewModel
+
+<div class="ui modal ms-create-bankaccount-modal">
+    <div class="header">@UIResources.BankAccount_Create_Title</div>
+    <div class="content">
+        @using (Html.BeginForm(Routes.CreateBankAccount.Action, Routes.CreateBankAccount.Controller, FormMethod.Post, new { @class = "ui form ms-create-bankaccount-form" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="required field">
+                @Html.LabelFor(m => m.Name)
+                @Html.TextBoxFor(m => m.Name)
+                @Html.ValidationMessageFor(m => m.Name)
+            </div>
+
+            <div class="field">
+                @Html.LabelFor(m => m.Description)
+                @Html.TextAreaFor(m => m.Description, new { rows = 3 })
+                @Html.ValidationMessageFor(m => m.Description)
+            </div>
+
+            <button class="ui positive fluid submit button">@UIResources.BankAccount_Create_Button_Create</button>
+        }
+    </div>
+</div>
+
+@Scripts.Render("~/bundles/jqueryval")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        // attaches the dialog to all elements with class ms-create-bankaccount-button
+        var apiAction = 'api-create-bankaccount';
+        var formSelector = '.ms-create-bankaccount-form';
+        var modalSelector = '.ms-create-bankaccount-modal';
+        var buttonSelector = '.ms-create-bankaccount-button';
+
+        // bind the form so it supports ajax
+        bindFormSubmit(formSelector, apiAction,
+            function (response) {
+                // this is the onSuccess callback
+                $(modalSelector).modal('hide');
+                $(formSelector).trigger('reset');
+
+                // call the default success method so we get nice messages and stuff
+                handleApiSuccess(response);
+            });
+
+        // modal initialization and settings
+        initModal(modalSelector, buttonSelector);
+    });
+</script>

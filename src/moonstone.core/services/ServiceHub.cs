@@ -4,6 +4,7 @@
     {
         public IBankAccountService BankAccountService { get; protected set; }
         public ICategoryService CategoryService { get; protected set; }
+        public ICurrencyService CurrencyService { get; protected set; }
         public IEnvironmentService EnvironmentService { get; protected set; }
         public IGroupService GroupService { get; protected set; }
         public ILoginService LoginService { get; protected set; }
@@ -17,7 +18,8 @@
             IGroupService groupService,
             ICategoryService categoryService,
             IBankAccountService bankAccountService,
-            ITransactionService transactionService)
+            ITransactionService transactionService,
+            ICurrencyService currencyService)
         {
             this.LoginService = loginService;
             this.EnvironmentService = environmentService;
@@ -26,6 +28,7 @@
             this.CategoryService = categoryService;
             this.BankAccountService = bankAccountService;
             this.TransactionService = transactionService;
+            this.CurrencyService = currencyService;
         }
     }
 }

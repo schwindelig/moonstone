@@ -34,6 +34,11 @@ namespace moonstone.services
             }
         }
 
+        public IEnumerable<Category> GetCategoriesForGroup(Guid groupId)
+        {
+            return this.Repositories.CategoryRepository.GetCategoriesForGroup(groupId);
+        }
+
         public Category GetCategoryById(Guid id)
         {
             return this.Repositories.CategoryRepository.GetById(id);

@@ -1,22 +1,62 @@
 ﻿@model moonstone.ui.web.Models.ViewModels.User.LoginViewModel
 
-@{
-    ViewBag.Title = "Login";
-}
+<div class="ms-unauth-page">
+    <div class="ui two column middle aligned very relaxed stackable grid">
+        <div class="column">
+            <h3>Sign in</h3>
 
-@*<h2>Login</h2>*@
+            @using (Html.BeginForm(Routes.Login.Action, Routes.Login.Controller, FormMethod.Post, new { @class = "ui form ms-login-form" }))
+            {
+                @Html.AntiForgeryToken()
 
-@Html.ValidationSummary()
+                <div class="required field">
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+                    @Html.LabelFor(m => m.Email)
+                    <div class="ui left icon input">
+                        @Html.TextBoxFor(m => m.Email, new { autofocus = "autofocus" })
+                        <i class="mail outline icon"></i>
+                    </div>
+                </div>
 
-    @Html.LabelFor(m => m.Email)
-    @Html.EditorFor(m => m.Email)
+                <div class="required field">
+                    @Html.LabelFor(m => m.Password)
 
-    @Html.LabelFor(m => m.Password)
-    @Html.PasswordFor(m => m.Password)
+                    <div class="ui left icon input">
+                        @Html.PasswordFor(m => m.Password)
+                        <i class="lock icon"></i>
+                    </div>
+                </div>
 
-    <input type="submit" value="login" />
-}
+                <button class="ui positive fluid submit button">Sign in</button>
+            }
+        </div>
+
+        <div class="ui vertical divider">Or</div>
+
+        <div class="column">
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // attaches the dialog to all elements with class ms-create-bankaccount-button
+            var apiAction = 'api-login';
+            var formSelector = '.ms-login-form';
+            var modalSelector = '.ms-login-modal';
+            var buttonSelector = '.ms-login-button';
+
+            // bind the form so it supports ajax
+            bindFormSubmit(formSelector, apiAction,
+                function (response) {
+                    // this is the onSuccess callback
+                    $(modalSelector).modal('hide');
+                    $(formSelector).trigger('reset');
+
+                    // call the default success method so we get nice messages and stuff
+                    handleApiSuccess(response);
+                });
+        });
+    </script>
+</div>

@@ -51,6 +51,7 @@
     <Compile Include="i18n\CultureNinja.cs" />
     <Compile Include="models\BankAccount.cs" />
     <Compile Include="models\Category.cs" />
+    <Compile Include="models\Currency.cs" />
     <Compile Include="models\Group.cs" />
     <Compile Include="models\GroupUser.cs" />
     <Compile Include="models\Transaction.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="repositories\RepositoryHub.cs" />
     <Compile Include="services\IBankAccountService.cs" />
     <Compile Include="services\ICategoryService.cs" />
+    <Compile Include="services\ICurrencyService.cs" />
     <Compile Include="services\IEnvironmentService.cs" />
     <Compile Include="services\IGroupService.cs" />
     <Compile Include="services\ILoginService.cs" />

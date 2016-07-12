@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<button class="ui labeled icon positive button ms-create-category-button">
+    <i class="plus icon"></i>
+    create category
+</button>
+
+@Html.Partial("CreateCategoryModal", new moonstone.ui.web.Models.ViewModels.Category.CreateCategoryViewModel())

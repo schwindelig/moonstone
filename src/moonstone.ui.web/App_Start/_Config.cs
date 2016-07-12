@@ -47,6 +47,11 @@ namespace moonstone.ui.web
             this.Action = action;
         }
 
+        public string GetActionLink(UrlHelper helper)
+        {
+            return helper.Action(this.Action, this.Controller);
+        }
+
         public bool IsSame(RouteData routeData)
         {
             return
@@ -65,8 +70,18 @@ namespace moonstone.ui.web
 
     public class Routes
     {
+        public static RouteEntry CreateBankAccount = new RouteEntry("CreateBankAccount", "BankAccount", "Create");
+        public static RouteEntry CreateCategory = new RouteEntry("CreateCategory", "Category", "Create");
+        public static RouteEntry CreateGroup = new RouteEntry("CreateGroup", "Group", "Create");
+        public static RouteEntry CreateTransaction = new RouteEntry("CreateTransaction", "Transaction", "Create");
         public static RouteEntry Error = new RouteEntry("Error", "Error", "Index");
         public static RouteEntry Home = new RouteEntry("Home", "Home", "Index");
+        public static RouteEntry IndexBankAccounts = new RouteEntry("IndexBankAccounts", "BankAccount", "Index");
+        public static RouteEntry IndexCategories = new RouteEntry("IndexCategories", "Category", "Index");
+        public static RouteEntry IndexGroups = new RouteEntry("IndexGroups", "Group", "Index");
+        public static RouteEntry IndexTransactions = new RouteEntry("IndexTransactions", "Transaction", "Index");
+        public static RouteEntry LoggedOut = new RouteEntry("LoggedOut", "User", "LoggedOut");
+        public static RouteEntry Login = new RouteEntry("Login", "User", "Login");
         public static RouteEntry Logout = new RouteEntry("Logout", "User", "Logout");
         public static RouteEntry SelectGroup = new RouteEntry("SelectGroup", "User", "SelectGroup");
     }

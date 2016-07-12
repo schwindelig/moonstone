@@ -16,6 +16,9 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "^2.2.4"
+    "jquery": "^2.2.4",
+    "jquery-serialize-object": "^2.5.0",
+    "toastr": "^2.1.2",
+    "jquery-validation-unobtrusive": "^3.2.6"
   }
 }

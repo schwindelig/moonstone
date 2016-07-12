@@ -1,4 +1,5 @@
 ﻿using moonstone.core.models;
+using moonstone.resources;
 using moonstone.ui.web.Models;
 using moonstone.ui.web.Models.ViewModels.Group;
 using System;
@@ -28,22 +29,35 @@ namespace moonstone.ui.web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(CreateGroupViewModel model)
         {
-            if (ModelState.IsValid)
+            try
             {
-                this.Current.Services.GroupService.CreateGroup(
-                    new Group
-                    {
-                        CreateDateUtc = DateTime.UtcNow,
-                        CreateUserId = Current.UserId.Value,
-                        Description = model.Description,
-                        Name = model.Name
-                    });
+                if (ModelState.IsValid)
+                {
+                    this.Current.Services.GroupService.CreateGroup(
+                        new Group
+                        {
+                            CreateDateUtc = DateTime.UtcNow,
+                            CreateUserId = Current.UserId.Value,
+                            Description = model.Description,
+                            Name = model.Name
+                        });
 
-                var res = Routes.Home;
-                return this.RedirectToAction(res.Action, res.Controller);
+                    return this.JsonSuccess(data: null, message: string.Format(ValidationResources.Group_Create_Success, model.Name));
+                }
+
+                return this.JsonError(data: null, message: ValidationResources.Generic_ModelState_Error);
             }
+            catch (Exception e)
+            {
+                this.HandleError(e);
+                return this.JsonError(data: null, message: ValidationResources.Generic_Error);
+            }
+        }
 
-            return View(model);
+        [HttpGet]
+        public ActionResult Index()
+        {
+            return View();
         }
     }
 }

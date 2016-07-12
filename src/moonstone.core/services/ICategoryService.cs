@@ -11,6 +11,8 @@ namespace moonstone.core.services
     {
         Category CreateCategory(Category category);
 
+        IEnumerable<Category> GetCategoriesForGroup(Guid groupId);
+
         Category GetCategoryById(Guid id);
     }
 }

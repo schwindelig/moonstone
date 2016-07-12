@@ -1,0 +1,93 @@
+﻿@model moonstone.ui.web.Models.ViewModels.Transaction.CreateTransactionViewModel
+
+<div class="ui long modal ms-create-transaction-modal">
+    <i class="close icon"></i>
+    <div class="header">New transaction</div>
+    <div class="content">
+        @using (Html.BeginForm(Routes.CreateTransaction.Action, Routes.CreateTransaction.Controller, FormMethod.Post, new { @class = "ui form ms-create-transaction-form" }))
+            {
+            @Html.AntiForgeryToken()
+
+            <div class="required field">
+                @Html.LabelFor(m => m.Title)
+                @Html.EditorFor(m => m.Title)
+                @Html.ValidationMessageFor(m => m.Title)
+            </div>
+
+            <div class="field">
+                @Html.LabelFor(m => m.Amount)
+                @Html.EditorFor(m => m.Amount)
+                @Html.ValidationMessageFor(m => m.Amount)
+            </div>
+
+            <div class="field">
+                @Html.LabelFor(m => m.CategoryId)
+                @Html.EditorFor(m => m.CategoryId)
+                @Html.ValidationMessageFor(m => m.CategoryId)
+            </div>
+
+            <div class="field">
+                @Html.LabelFor(m => m.Currency)
+                @Html.EditorFor(m => m.Currency)
+                @Html.ValidationMessageFor(m => m.Currency)
+            </div>
+
+            <div class="field">
+                @Html.LabelFor(m => m.Description)
+                @Html.EditorFor(m => m.Description)
+                @Html.ValidationMessageFor(m => m.Description)
+            </div>
+
+            <div class="field">
+                @Html.LabelFor(m => m.DestinationBankAccountId)
+                @Html.EditorFor(m => m.DestinationBankAccountId)
+                @Html.ValidationMessageFor(m => m.DestinationBankAccountId)
+            </div>
+
+            <div class="field">
+                @Html.EditorFor(m => m.IsBooked)
+                @Html.ValidationMessageFor(m => m.IsBooked)
+            </div>
+
+            <div class="field">
+                @Html.LabelFor(m => m.SourceBankAccountId)
+                @Html.EditorFor(m => m.SourceBankAccountId)
+                @Html.ValidationMessageFor(m => m.SourceBankAccountId)
+            </div>
+
+            <div class="field">
+                @Html.LabelFor(m => m.ValueDate)
+                @Html.EditorFor(m => m.ValueDate)
+                @Html.ValidationMessageFor(m => m.ValueDate)
+            </div>
+
+            <button class="ui positive fluid submit button">Create transaction</button>
+        }
+    </div>
+</div>
+
+@Scripts.Render("~/bundles/jqueryval")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        // attaches the dialog to all elements with class ms-create-transaction-button
+        var apiAction = 'api-create-transaction';
+        var formSelector = '.ms-create-transaction-form';
+        var modalSelector = '.ms-create-transaction-modal';
+        var buttonSelector = '.ms-create-transaction-button';
+
+        // bind the form so it supports ajax
+        bindFormSubmit(formSelector, apiAction,
+            function (response) {
+                // this is the onSuccess callback
+                $(modalSelector).modal('hide');
+                $(formSelector).trigger('reset');
+
+                // call the default success method so we get nice messages and stuff
+                handleApiSuccess(response);
+            });
+
+        // modal initialization and settings
+        initModal(modalSelector, buttonSelector);
+    });
+</script>

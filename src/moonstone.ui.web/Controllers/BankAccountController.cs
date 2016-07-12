@@ -1,4 +1,5 @@
-﻿using moonstone.ui.web.Models;
+﻿using moonstone.resources;
+using moonstone.ui.web.Models;
 using moonstone.ui.web.Models.ViewModels.BankAccount;
 using System;
 using System.Collections.Generic;
@@ -26,21 +27,53 @@ namespace moonstone.ui.web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(CreateBankAccountViewModel model)
         {
-            if (ModelState.IsValid)
+            try
             {
-                this.Current.Services.BankAccountService.CreateBankAccount(new core.models.BankAccount()
+                if (ModelState.IsValid)
                 {
-                    Name = model.Name,
-                    Description = model.Description,
-                    CreateUserId = this.Current.User.Id,
-                    GroupId = this.Current.User.CurrentGroupId.Value
-                });
+                    this.Current.Services.BankAccountService.CreateBankAccount(new core.models.BankAccount()
+                    {
+                        Name = model.Name,
+                        Description = model.Description,
+                        CreateUserId = this.Current.User.Id,
+                        GroupId = this.Current.User.CurrentGroupId.Value
+                    });
 
-                var res = Routes.Home;
-                return this.RedirectToAction(res.Action, res.Controller);
+                    return this.JsonSuccess(data: null, message: string.Format(ValidationResources.BankAccount_Create_Success, model.Name));
+                }
+
+                return this.JsonError(data: null, message: ValidationResources.Generic_ModelState_Error);
             }
+            catch (Exception e)
+            {
+                this.HandleError(e);
+                return this.JsonError(data: null, message: ValidationResources.Generic_Error);
+            }
+        }
 
-            return View(model);
+        [HttpGet]
+        public ActionResult GetAllBankAccountsForCurrentGroup()
+        {
+            try
+            {
+                var res = this.Current.Services.BankAccountService.GetBankAccountsForGroup(
+                    this.Current.User.CurrentGroupId.Value)
+                    .Select(b => new { name = b.Name, value = b.Id })
+                    .OrderBy(b => b.name);
+
+                return this.JsonSuccess(data: res, message: null);
+            }
+            catch (Exception e)
+            {
+                this.HandleError(e);
+                return this.JsonError(data: null, message: ValidationResources.BankAccount_GetAllForCurrentGroup_Error);
+            }
+        }
+
+        [HttpGet]
+        public ActionResult Index()
+        {
+            return View();
         }
     }
 }

@@ -11,6 +11,8 @@ namespace moonstone.core.repositories
     {
         Guid Create(BankAccount bankAccount);
 
+        IEnumerable<BankAccount> GetBankAccountsForGroup(Guid groupId);
+
         BankAccount GetById(Guid id);
     }
 }

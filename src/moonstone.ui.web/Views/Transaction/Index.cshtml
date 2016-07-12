@@ -1,0 +1,19 @@
+﻿@using moonstone.ui.web.Models.ViewModels.Transaction
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<button class="ui labeled icon positive button ms-create-transaction-button">
+    <i class="plus icon"></i>
+    create transaction
+</button>
+
+@Html.Partial("CreateTransactionModal",
+    new CreateTransactionViewModel()
+    {
+        IsBooked = true,
+        ValueDate = DateTime.Now
+    })

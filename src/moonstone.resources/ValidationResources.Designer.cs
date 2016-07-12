@@ -61,29 +61,110 @@ namespace moonstone.resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bank account &apos;{0}&apos; has been created successfully..
+        /// </summary>
+        public static string BankAccount_Create_Success {
+            get {
+                return ResourceManager.GetString("BankAccount_Create_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to retreive bank accounts for gurrent group..
+        /// </summary>
+        public static string BankAccount_GetAllForCurrentGroup_Error {
+            get {
+                return ResourceManager.GetString("BankAccount_GetAllForCurrentGroup_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Category &apos;{0}&apos; has been created..
+        /// </summary>
+        public static string Category_Create_Success {
+            get {
+                return ResourceManager.GetString("Category_Create_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to retreive categories for current group..
+        /// </summary>
+        public static string Category_GetAllForCurrentGroup_Error {
+            get {
+                return ResourceManager.GetString("Category_GetAllForCurrentGroup_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error has occured. Please try again..
+        /// </summary>
+        public static string Generic_Error {
+            get {
+                return ResourceManager.GetString("Generic_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please ensure you have entered all required data..
+        /// </summary>
+        public static string Generic_ModelState_Error {
+            get {
+                return ResourceManager.GetString("Generic_ModelState_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Group &apos;{0}&apos; has been created successfully..
+        /// </summary>
+        public static string Group_Create_Success {
+            get {
+                return ResourceManager.GetString("Group_Create_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transaction &apos;{0}&apos; has been created successfully..
+        /// </summary>
+        public static string Transaction_Create_Success {
+            get {
+                return ResourceManager.GetString("Transaction_Create_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login failed. Please try again..
         /// </summary>
-        public static string Login_Failed {
+        public static string User_Login_Failed {
             get {
-                return ResourceManager.GetString("Login_Failed", resourceCulture);
+                return ResourceManager.GetString("User_Login_Failed", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Your account has been locked..
         /// </summary>
-        public static string Login_LockedOut {
+        public static string User_Login_LockedOut {
             get {
-                return ResourceManager.GetString("Login_LockedOut", resourceCulture);
+                return ResourceManager.GetString("User_Login_LockedOut", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Your account requires verification. Please check your inbox..
         /// </summary>
-        public static string Login_RequiresVerification {
+        public static string User_Login_RequiresVerification {
             get {
-                return ResourceManager.GetString("Login_RequiresVerification", resourceCulture);
+                return ResourceManager.GetString("User_Login_RequiresVerification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully logged in as {0}..
+        /// </summary>
+        public static string User_Login_Success {
+            get {
+                return ResourceManager.GetString("User_Login_Success", resourceCulture);
             }
         }
         

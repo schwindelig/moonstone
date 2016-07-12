@@ -84,6 +84,7 @@ namespace moonstone.ui.web
             container.Register<ICategoryService, CategoryService>();
             container.Register<IBankAccountService, BankAccountService>();
             container.Register<ITransactionService, TransactionService>();
+            container.Register<ICurrencyService, CurrencyService>();
         }
     }
 }

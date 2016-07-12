@@ -1,0 +1,19 @@
+﻿@model string
+
+@{
+    string selectorName = Html.NameFor(m => m).ToString();
+}
+
+<div class="ui search selection dropdown ms-dropdown-currency" id="@selectorName">
+    @Html.HiddenFor(m => m)
+    <div class="default text">Please choose...</div>
+    <i class="dropdown icon"></i>
+    <div class="menu">
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        bindDropdown('#@selectorName', 'api-get-currencies');
+    });
+</script>
