@@ -6,14 +6,7 @@
 
 <h2>Index</h2>
 
-<button class="ui labeled icon positive button ms-create-transaction-button">
+<a class="ui labeled icon positive button ms-create-transaction-button" href="@Routes.CreateTransaction.GetActionLink(Url)">
     <i class="plus icon"></i>
     create transaction
-</button>
-
-@Html.Partial("CreateTransactionModal",
-    new CreateTransactionViewModel()
-    {
-        IsBooked = true,
-        ValueDate = DateTime.Now
-    })
+</a>

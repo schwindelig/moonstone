@@ -133,6 +133,15 @@ namespace moonstone.resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failed to retreive profile information..
+        /// </summary>
+        public static string User_GetProfileInformation_Error {
+            get {
+                return ResourceManager.GetString("User_GetProfileInformation_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login failed. Please try again..
         /// </summary>
         public static string User_Login_Failed {

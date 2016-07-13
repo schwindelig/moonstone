@@ -39,7 +39,10 @@ namespace moonstone.ui.web.Controllers
                         GroupId = this.Current.User.CurrentGroupId.Value
                     });
 
-                    return this.JsonSuccess(data: null, message: string.Format(ValidationResources.BankAccount_Create_Success, model.Name));
+                    return this.JsonSuccess(
+                        data: null,
+                        message: string.Format(ValidationResources.BankAccount_Create_Success, model.Name),
+                        returnUrl: Routes.IndexBankAccounts.GetActionLink(Url));
                 }
 
                 return this.JsonError(data: null, message: ValidationResources.Generic_ModelState_Error);

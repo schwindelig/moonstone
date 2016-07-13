@@ -4,9 +4,7 @@
 
 <h2>Index</h2>
 
-<button class="ui labeled icon positive button ms-create-bankaccount-button">
+<a class="ui labeled icon positive button ms-create-bankaccount-button" href="@Routes.CreateBankAccount.GetActionLink(Url)">
     <i class="plus icon"></i>
     create bank account
-</button>
-
-@Html.Partial("CreateBankAccountModal", new moonstone.ui.web.Models.ViewModels.BankAccount.CreateBankAccountViewModel())
+</a>

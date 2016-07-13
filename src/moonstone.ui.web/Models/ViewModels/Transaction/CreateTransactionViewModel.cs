@@ -29,6 +29,7 @@ namespace moonstone.ui.web.Models.ViewModels.Transaction
         [Required]
         public string Title { get; set; }
 
+        [UIHint("Date")]
         public DateTime ValueDate { get; set; }
     }
 }

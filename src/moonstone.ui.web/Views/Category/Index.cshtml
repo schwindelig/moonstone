@@ -4,9 +4,7 @@
 
 <h2>Index</h2>
 
-<button class="ui labeled icon positive button ms-create-category-button">
+<a class="ui labeled icon positive button ms-create-category-button" href="@Routes.CreateCategory.GetActionLink(Url)">
     <i class="plus icon"></i>
     create category
-</button>
-
-@Html.Partial("CreateCategoryModal", new moonstone.ui.web.Models.ViewModels.Category.CreateCategoryViewModel())
+</a>

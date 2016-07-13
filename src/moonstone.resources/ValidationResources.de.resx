@@ -141,6 +141,9 @@
   <data name="Transaction_Create_Success" xml:space="preserve">
     <value>Transaktion '{0}' wurde erfolgreich erstellt.</value>
   </data>
+  <data name="User_GetProfileInformation_Error" xml:space="preserve">
+    <value>Fehler beim Abfragen der Profilinformationen.</value>
+  </data>
   <data name="User_Login_Failed" xml:space="preserve">
     <value>Login fehlgeschlagen. Bitte versuchen Sie es erneut.</value>
   </data>

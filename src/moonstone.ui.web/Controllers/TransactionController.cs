@@ -52,7 +52,10 @@ namespace moonstone.ui.web.Controllers
                             ValueDateUtc = model.ValueDate.ToUniversalTime()
                         });
 
-                    return this.JsonSuccess(data: null, message: string.Format(ValidationResources.Transaction_Create_Success, model.Title));
+                    return this.JsonSuccess(
+                        data: null,
+                        message: string.Format(ValidationResources.Transaction_Create_Success, model.Title),
+                        returnUrl: Routes.IndexTransactions.GetActionLink(Url));
                 }
 
                 return this.JsonError(data: null, message: ValidationResources.Generic_ModelState_Error);

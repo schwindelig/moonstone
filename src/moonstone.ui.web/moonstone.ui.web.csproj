@@ -200,13 +200,13 @@
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\User\SelectGroup.cshtml" />
     <Content Include="Views\BankAccount\Index.cshtml" />
-    <Content Include="Views\BankAccount\CreateBankAccountModal.cshtml" />
+    <Content Include="Views\BankAccount\Create.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
-    <Content Include="Views\Category\CreateCategoryModal.cshtml" />
+    <Content Include="Views\Category\Create.cshtml" />
     <Content Include="Views\Group\Index.cshtml" />
-    <Content Include="Views\Group\CreateGroupModal.cshtml" />
+    <Content Include="Views\Group\Create.cshtml" />
     <Content Include="Views\Transaction\Index.cshtml" />
-    <Content Include="Views\Transaction\CreateTransactionModal.cshtml" />
+    <Content Include="Views\Transaction\Create.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\CategorySelect.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\BankAccountSelect.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Boolean.cshtml" />
@@ -214,6 +214,7 @@
     <Content Include="Views\Shared\_headerProfile.cshtml" />
     <Content Include="Views\Shared\_headerSignIn.cshtml" />
     <Content Include="Views\User\LoggedOut.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,5 +1,8 @@
-﻿$(document).ready(function () {
+﻿var ms_profile_info = null;
+
+$(document).ready(function () {
     initSemanticUi();
+    initFlatpickr();
     initToastr();
 
     $('.ms-content').transition({
@@ -12,6 +15,7 @@ function initSemanticUi() {
     // api
     $.fn.api.settings.api = {
         'api-login': '/user/login',
+        'api-get-profile-info': '/User/GetProfileInformation',
         'api-create-bankaccount': '/bankaccount/create',
         'api-create-category': '/category/create',
         'api-create-group': '/group/create',
@@ -29,13 +33,31 @@ function initSemanticUi() {
     $.fn.api.settings.onSuccess = handleApiSuccess;
     $.fn.api.settings.onFailure = handleApiFailure;
 
+    // get profile information
+    $('body').api({
+        action: 'api-get-profile-info', on: 'now',
+        onSuccess: function (response) {
+            console.log('success');
+        },
+        onFailure: function (response) {
+            // user probably not signed in
+        }
+    });
+
+    // profile dropdown in nav
+    $('.ms-nav-profile-dropdown').dropdown();
+
     // checkboxes
     $('ui.checkbox').checkbox();
 
     // icon toolbar tooltips
     $(".ms-icon-bar .item").popup();
-
     console.log('semantic initialized');
+}
+
+function initFlatpickr() {
+    flatpickr('.ms-date-selector');
+    console.log('flatpickr initialized');
 }
 
 function initToastr() {
@@ -86,12 +108,11 @@ function bindFormSubmit(formSelector, apiAction, callbackSuccess, callbackFailur
 }
 
 function handleApiFailure(response) {
-    console.log(response);
     displayMessage('error', 'Error', response.message);
 }
 
 function handleApiSuccess(response) {
-    displayMessage('success', 'Success', response.message);
+    //displayMessage('success', 'Success', response.message);
 
     if (response.returnUrl !== null) {
         window.location = response.returnUrl;

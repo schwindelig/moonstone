@@ -1,0 +1,32 @@
+﻿@model moonstone.ui.web.Models.ViewModels.BankAccount.CreateBankAccountViewModel
+
+@using (Html.BeginForm(Routes.CreateBankAccount.Action, Routes.CreateBankAccount.Controller, FormMethod.Post, new { @class = "ui form ms-create-bankaccount-form" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="required field">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name)
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+
+    <div class="field">
+        @Html.LabelFor(m => m.Description)
+        @Html.TextAreaFor(m => m.Description, new { rows = 3 })
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+
+    <button class="ui positive submit button">@UIResources.BankAccount_Create_Button_Create</button>
+}
+
+@Scripts.Render("~/bundles/jqueryval")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var apiAction = 'api-create-bankaccount';
+        var formSelector = '.ms-create-bankaccount-form';
+
+        // bind the form so it supports ajax
+        bindFormSubmit(formSelector, apiAction);
+    });
+</script>

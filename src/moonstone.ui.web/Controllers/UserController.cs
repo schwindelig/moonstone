@@ -25,6 +25,23 @@ namespace moonstone.ui.web.Controllers
         }
 
         [HttpGet]
+        public ActionResult GetProfileInformation()
+        {
+            try
+            {
+                var currentUser = this.Current.User;
+
+                var res = new { email = currentUser.Email, culture = currentUser.Culture };
+
+                return this.JsonSuccess(data: res, message: null);
+            }
+            catch (Exception e)
+            {
+                return this.JsonError(data: null, message: ValidationResources.User_GetProfileInformation_Error);
+            }
+        }
+
+        [HttpGet]
         [AllowAnonymous]
         public ActionResult LoggedOut()
         {

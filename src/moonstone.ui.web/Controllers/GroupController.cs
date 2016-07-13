@@ -42,7 +42,10 @@ namespace moonstone.ui.web.Controllers
                             Name = model.Name
                         });
 
-                    return this.JsonSuccess(data: null, message: string.Format(ValidationResources.Group_Create_Success, model.Name));
+                    return this.JsonSuccess(
+                        data: null,
+                        message: string.Format(ValidationResources.Group_Create_Success, model.Name),
+                        returnUrl: Routes.IndexGroups.GetActionLink(Url));
                 }
 
                 return this.JsonError(data: null, message: ValidationResources.Generic_ModelState_Error);
