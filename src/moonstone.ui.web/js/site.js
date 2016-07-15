@@ -4,22 +4,17 @@ $(document).ready(function () {
     initSemanticUi();
     initFlatpickr();
     initToastr();
-
-    $('.ms-content').transition({
-        animation: 'fade in',
-        duration: 600
-    });
 });
 
 function initSemanticUi() {
     // api
     $.fn.api.settings.api = {
         'api-login': '/user/login',
-        'api-get-profile-info': '/User/GetProfileInformation',
         'api-create-bankaccount': '/bankaccount/create',
         'api-create-category': '/category/create',
         'api-create-group': '/group/create',
         'api-create-transaction': '/transaction/create',
+        'api-get-profile-info': '/User/GetProfileInformation',
         'api-get-categories-for-current-group': '/category/GetAllCategoriesForCurrentGroup',
         'api-get-bankaccounts-for-current-group': '/bankaccount/GetAllBankAccountsForCurrentGroup',
         'api-get-currencies': '/currency/GetAllCurrencies'
