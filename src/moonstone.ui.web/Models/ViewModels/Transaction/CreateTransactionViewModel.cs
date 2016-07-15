@@ -21,7 +21,7 @@ namespace moonstone.ui.web.Models.ViewModels.Transaction
         [UIHint("BankAccountSelect")]
         public Guid? DestinationBankAccountId { get; set; }
 
-        public bool IsBooked { get; set; }
+        //public bool IsBooked { get; set; }
 
         [UIHint("BankAccountSelect")]
         public Guid SourceBankAccountId { get; set; }

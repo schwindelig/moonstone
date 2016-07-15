@@ -20,7 +20,6 @@ namespace moonstone.ui.web.Controllers
         {
             var model = new CreateTransactionViewModel
             {
-                IsBooked = true,
                 ValueDate = DateTime.UtcNow.ToLocalTime()
             };
 
@@ -46,7 +45,6 @@ namespace moonstone.ui.web.Controllers
                             Description = model.Description,
                             DestinationBankAccountId = model.DestinationBankAccountId,
                             GroupId = this.Current.User.CurrentGroupId.Value,
-                            IsBooked = model.IsBooked,
                             SourceBankAccountId = model.SourceBankAccountId,
                             Title = model.Title,
                             ValueDateUtc = model.ValueDate.ToUniversalTime()

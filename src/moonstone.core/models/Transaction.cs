@@ -17,7 +17,15 @@ namespace moonstone.core.models
         public Guid? DestinationBankAccountId { get; set; }
         public Guid GroupId { get; set; }
         public Guid Id { get; set; }
-        public bool IsBooked { get; set; }
+
+        public bool IsBooked
+        {
+            get
+            {
+                return this.ValueDateUtc > DateTime.UtcNow;
+            }
+        }
+
         public Guid SourceBankAccountId { get; set; }
         public string Title { get; set; }
         public DateTime ValueDateUtc { get; set; }
