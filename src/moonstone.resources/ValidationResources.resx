@@ -117,14 +117,44 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Login_Failed" xml:space="preserve">
+  <data name="BankAccount_Create_Success" xml:space="preserve">
+    <value>Bank account '{0}' has been created successfully.</value>
+  </data>
+  <data name="BankAccount_GetAllForCurrentGroup_Error" xml:space="preserve">
+    <value>Failed to retreive bank accounts for gurrent group.</value>
+  </data>
+  <data name="Category_Create_Success" xml:space="preserve">
+    <value>Category '{0}' has been created.</value>
+  </data>
+  <data name="Category_GetAllForCurrentGroup_Error" xml:space="preserve">
+    <value>Failed to retreive categories for current group.</value>
+  </data>
+  <data name="Generic_Error" xml:space="preserve">
+    <value>An error has occured. Please try again.</value>
+  </data>
+  <data name="Generic_ModelState_Error" xml:space="preserve">
+    <value>Please ensure you have entered all required data.</value>
+  </data>
+  <data name="Group_Create_Success" xml:space="preserve">
+    <value>Group '{0}' has been created successfully.</value>
+  </data>
+  <data name="Transaction_Create_Success" xml:space="preserve">
+    <value>Transaction '{0}' has been created successfully.</value>
+  </data>
+  <data name="User_GetProfileInformation_Error" xml:space="preserve">
+    <value>Failed to retreive profile information.</value>
+  </data>
+  <data name="User_Login_Failed" xml:space="preserve">
     <value>Login failed. Please try again.</value>
   </data>
-  <data name="Login_LockedOut" xml:space="preserve">
+  <data name="User_Login_LockedOut" xml:space="preserve">
     <value>Your account has been locked.</value>
   </data>
-  <data name="Login_RequiresVerification" xml:space="preserve">
+  <data name="User_Login_RequiresVerification" xml:space="preserve">
     <value>Your account requires verification. Please check your inbox.</value>
+  </data>
+  <data name="User_Login_Success" xml:space="preserve">
+    <value>Successfully logged in as {0}.</value>
   </data>
   <data name="User_SelectGroup_NotInGroup" xml:space="preserve">
     <value>Not a valid group.</value>

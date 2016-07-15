@@ -98,7 +98,8 @@ namespace moonstone.tests.common
                 new SqlGroupRepository(context),
                 new SqlGroupUserRepository(context),
                 new SqlCategoryRepository(context),
-                new SqlBankAccountRepository(context));
+                new SqlBankAccountRepository(context),
+                new SqlTransactionRepository(context));
         }
 
         public static ServiceHub GetServiceHub(RepositoryHub repoHub)
@@ -109,6 +110,8 @@ namespace moonstone.tests.common
             IUserService userService = new UserService(repoHub, groupService);
             ICategoryService categoryService = new CategoryService(repoHub, groupService);
             IBankAccountService bankAccountservice = new BankAccountService(repoHub, groupService);
+            ITransactionService transactionService = new TransactionService(repoHub);
+            ICurrencyService currencyService = new CurrencyService(repoHub);
 
             return new ServiceHub(
                 loginService: loginService, /* until we figure out how to get the crap owin context thingy working in nunit */
@@ -116,7 +119,9 @@ namespace moonstone.tests.common
                 userService: userService,
                 groupService: groupService,
                 categoryService: categoryService,
-                bankAccountService: bankAccountservice);
+                bankAccountService: bankAccountservice,
+                transactionService: transactionService,
+                currencyService: currencyService);
         }
 
         public static SqlContext GetSqlContext()

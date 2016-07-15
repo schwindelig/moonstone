@@ -12,5 +12,7 @@ namespace moonstone.core.services
         BankAccount CreateBankAccount(BankAccount bankAccount);
 
         BankAccount GetBankAccountById(Guid id);
+
+        IEnumerable<BankAccount> GetBankAccountsForGroup(Guid groupId);
     }
 }

@@ -56,6 +56,7 @@ namespace moonstone.ui.web
                     ctx.RegisterModelDescription<GroupUser>(sql.configs.ModelDescriptions.GroupUser());
                     ctx.RegisterModelDescription<Category>(sql.configs.ModelDescriptions.Category());
                     ctx.RegisterModelDescription<BankAccount>(sql.configs.ModelDescriptions.BankAccount());
+                    ctx.RegisterModelDescription<Transaction>(sql.configs.ModelDescriptions.Transaction());
 
                     return ctx;
                 },
@@ -67,6 +68,7 @@ namespace moonstone.ui.web
             container.Register<IGroupUserRepository, SqlGroupUserRepository>();
             container.Register<ICategoryRepository, SqlCategoryRepository>();
             container.Register<IBankAccountRepository, SqlBankAccountRepository>();
+            container.Register<ITransactionRepository, SqlTransactionRepository>();
 
             // Authentication
             container.Register<IUserStore<User, Guid>, UserStore>();
@@ -81,6 +83,8 @@ namespace moonstone.ui.web
             container.Register<IGroupService, GroupService>();
             container.Register<ICategoryService, CategoryService>();
             container.Register<IBankAccountService, BankAccountService>();
+            container.Register<ITransactionService, TransactionService>();
+            container.Register<ICurrencyService, CurrencyService>();
         }
     }
 }

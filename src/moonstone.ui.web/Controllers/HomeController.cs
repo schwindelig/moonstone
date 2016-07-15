@@ -16,6 +16,8 @@ namespace moonstone.ui.web.Controllers
             return View();
         }
 
+#if DEBUG
+
         [AllowAnonymous]
         public string Seeed()
         {
@@ -32,7 +34,20 @@ namespace moonstone.ui.web.Controllers
                 return "failed to create user";
             }
 
+            var user = this.Current.Services.UserService.GetUerByEmail("david.szoeke@gmail.com");
+            var group = this.Current.Services.GroupService.CreateGroup(new core.models.Group()
+            {
+                CreateUserId = user.Id,
+                Description = "Seeded default group for david.szoeke@gmail.com",
+                Name = "David's group",
+                CreateDateUtc = DateTime.UtcNow
+            });
+            user.CurrentGroupId = group.Id;
+            this.Current.Services.UserService.SetCurrentGroup(user.Id, group.Id);
+
             return "seeded";
         }
+
+#endif
     }
 }

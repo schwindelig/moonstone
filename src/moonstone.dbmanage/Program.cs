@@ -344,7 +344,7 @@ namespace moonstone.dbmanage
                 {
                     try
                     {
-                        Console.WriteLine($"Executing {script.Version.ToString()} {script.Name} ...");
+                        Console.Write($"Executing {script.Version.ToString()} {script.Name} ... ");
 
                         context.ExecuteScript(script);
 

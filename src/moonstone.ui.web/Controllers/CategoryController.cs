@@ -1,4 +1,5 @@
-﻿using moonstone.ui.web.Models;
+﻿using moonstone.resources;
+using moonstone.ui.web.Models;
 using moonstone.ui.web.Models.ViewModels.Category;
 using System;
 using System.Collections.Generic;
@@ -27,24 +28,54 @@ namespace moonstone.ui.web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(CreateCategoryViewModel model)
         {
-            if (ModelState.IsValid)
+            try
             {
-                this.Current.Services.CategoryService.CreateCategory(
-                    new core.models.Category
-                    {
-                        CreateUserId = this.Current.User.Id,
-                        GroupId = this.Current.User.CurrentGroupId.Value,
-                        Name = model.Name
-                    });
+                if (ModelState.IsValid)
+                {
+                    this.Current.Services.CategoryService.CreateCategory(
+                        new core.models.Category
+                        {
+                            CreateUserId = this.Current.User.Id,
+                            GroupId = this.Current.User.CurrentGroupId.Value,
+                            Name = model.Name
+                        });
 
-                var res = Routes.Home;
-                return this.RedirectToAction(res.Action, res.Controller);
+                    return this.JsonSuccess(
+                        data: null,
+                        message: string.Format(ValidationResources.Category_Create_Success, model.Name),
+                        returnUrl: Routes.IndexCategories.GetActionLink(Url));
+                }
+
+                return this.JsonError(data: null, message: ValidationResources.Generic_ModelState_Error);
             }
-
-            return View(model);
+            catch (Exception e)
+            {
+                this.HandleError(e);
+                return this.JsonError(data: null, message: ValidationResources.Generic_Error);
+            }
         }
 
-        // GET: Category
+        [HttpGet]
+        public ActionResult GetAllCategoriesForCurrentGroup()
+        {
+            try
+            {
+                var res =
+                    this.Current.Services.CategoryService.GetCategoriesForGroup(
+                        this.Current.User.CurrentGroupId.Value)
+                    .Select(c => new { name = c.Name, value = c.Id })
+                    .OrderBy(c => c.name);
+
+                return this.JsonSuccess(data: res, message: null);
+            }
+            catch (Exception e)
+            {
+                this.HandleError(e);
+                return this.JsonError(data: null, message: ValidationResources.Category_GetAllForCurrentGroup_Error);
+            }
+        }
+
+        [HttpGet]
         public ActionResult Index()
         {
             return View();

@@ -1,20 +1,26 @@
 ﻿@model moonstone.ui.web.Models.ViewModels.Category.CreateCategoryViewModel
 
-@{
-    ViewBag.Title = "Create";
-}
-
-<h2>Create</h2>
-
-@Html.ValidationSummary()
-
-@using (Html.BeginForm())
-{
+@using (Html.BeginForm(Routes.CreateCategory.Action, Routes.CreateCategory.Controller, FormMethod.Post, new { @class = "ui form ms-create-category-form" }))
+            {
     @Html.AntiForgeryToken()
 
-    @Html.LabelFor(m => m.Name)
-    @Html.TextBoxFor(m => m.Name)
-    @Html.ValidationMessageFor(m => m.Name)
+    <div class="required field">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name)
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
 
-    <input type="submit" value="@UIResources.Category_Create_Button_Create" />
+    <button class="ui positive submit button">create the thing</button>
 }
+
+@Scripts.Render("~/bundles/jqueryval")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var apiAction = 'api-create-category';
+        var formSelector = '.ms-create-category-form';
+
+        // bind the form so it supports ajax
+        bindFormSubmit(formSelector, apiAction);
+    });
+</script>

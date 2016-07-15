@@ -38,5 +38,10 @@ namespace moonstone.services
         {
             return this.Repositories.BankAccountRepository.GetById(id);
         }
+
+        public IEnumerable<BankAccount> GetBankAccountsForGroup(Guid groupId)
+        {
+            return this.Repositories.BankAccountRepository.GetBankAccountsForGroup(groupId);
+        }
     }
 }

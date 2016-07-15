@@ -1,24 +1,33 @@
 ﻿@model moonstone.ui.web.Models.ViewModels.Group.CreateGroupViewModel
 
-@{
-    ViewBag.Title = "Create";
-}
-
-<h2>Create</h2>
-
-@Html.ValidationSummary()
-
-@using (Html.BeginForm())
-{
+@using (Html.BeginForm(Routes.CreateGroup.Action, Routes.CreateGroup.Controller, FormMethod.Post, new { @class = "ui form ms-create-group-form" }))
+            {
     @Html.AntiForgeryToken()
 
-    @Html.LabelFor(m => m.Name)
-    @Html.TextBoxFor(m => m.Name)
-    @Html.ValidationMessageFor(m => m.Name)
+    <div class="required field">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name)
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
 
-    @Html.LabelFor(m => m.Description)
-    @Html.TextAreaFor(m => m.Description)
-    @Html.ValidationMessageFor(m => m.Description)
+    <div class="required field">
+        @Html.LabelFor(m => m.Description)
+        @Html.TextAreaFor(m => m.Description, new { rows = 3 })
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
 
-    <input type="submit" value="@UIResources.Group_Create_Button_Create" />
+    <button class="ui positive submit button">create itttt</button>
 }
+
+@Scripts.Render("~/bundles/jqueryval")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        // attaches the dialog to all elements with class ms-create-group-button
+        var apiAction = 'api-create-group';
+        var formSelector = '.ms-create-group-form';
+
+        // bind the form so it supports ajax
+        bindFormSubmit(formSelector, apiAction);
+    });
+</script>

@@ -21,6 +21,36 @@ namespace moonstone.ui.web.Controllers
             this.ModelState.AddModelError(string.Empty, message);
         }
 
+        protected void HandleError(Exception e)
+        {
+            // TODO: Add logging
+        }
+
+        protected JsonResult JsonError(dynamic data, string message)
+        {
+            return this.JsonError(data, message, returnUrl: null);
+        }
+
+        protected JsonResult JsonError(dynamic data, string message, string returnUrl)
+        {
+            return this.JsonResponse(false, data, message, returnUrl);
+        }
+
+        protected JsonResult JsonResponse(bool success, dynamic data, string message, string returnUrl)
+        {
+            return Json(new { success = success, message = message, data = data, returnUrl = returnUrl }, JsonRequestBehavior.AllowGet);
+        }
+
+        protected JsonResult JsonSuccess(dynamic data, string message)
+        {
+            return this.JsonSuccess(data, message, returnUrl: null);
+        }
+
+        protected JsonResult JsonSuccess(dynamic data, string message, string returnUrl)
+        {
+            return this.JsonResponse(true, data, message, returnUrl: returnUrl);
+        }
+
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             if (User.Identity.IsAuthenticated)

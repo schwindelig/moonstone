@@ -70,6 +70,15 @@ namespace moonstone.resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create a new bank account.
+        /// </summary>
+        public static string BankAccount_Create_Title {
+            get {
+                return ResourceManager.GetString("BankAccount_Create_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create a new category.
         /// </summary>
         public static string Category_Create_Button_Create {
@@ -111,6 +120,15 @@ namespace moonstone.resources {
         public static string Site_Home {
             get {
                 return ResourceManager.GetString("Site_Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create a new transaction.
+        /// </summary>
+        public static string Transaction_Create_Button_Create {
+            get {
+                return ResourceManager.GetString("Transaction_Create_Button_Create", resourceCulture);
             }
         }
     }

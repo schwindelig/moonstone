@@ -3,6 +3,7 @@ using moonstone.core.services.results;
 using moonstone.resources;
 using moonstone.ui.web.Models;
 using moonstone.ui.web.Models.ViewModels.User;
+using System;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -24,6 +25,31 @@ namespace moonstone.ui.web.Controllers
         }
 
         [HttpGet]
+        public ActionResult GetProfileInformation()
+        {
+            try
+            {
+                var currentUser = this.Current.User;
+
+                var res = new { email = currentUser.Email, culture = currentUser.Culture };
+
+                return this.JsonSuccess(data: res, message: null);
+            }
+            catch (Exception e)
+            {
+                return this.JsonError(data: null, message: ValidationResources.User_GetProfileInformation_Error);
+            }
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult LoggedOut()
+        {
+            var res = Routes.Login;
+            return this.RedirectToAction(res.Action, res.Controller);
+        }
+
+        [HttpGet]
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
@@ -40,39 +66,49 @@ namespace moonstone.ui.web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel model)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var result = this.Current.Services.LoginService.Login(
-                    username: model.Email,
-                    password: model.Password,
-                    isPersistent: false,
-                    shouldLockOut: false);
-
-                if (result == LoginResult.Success)
+                if (ModelState.IsValid)
                 {
-                    var res = Routes.Home;
-                    return this.RedirectToAction(res.Action, res.Controller);
+                    var result = this.Current.Services.LoginService.Login(
+                        username: model.Email,
+                        password: model.Password,
+                        isPersistent: false,
+                        shouldLockOut: false);
+
+                    if (result == LoginResult.Success)
+                    {
+                        return this.JsonSuccess(
+                            data: null,
+                            message: string.Format(ValidationResources.User_Login_Success, model.Email),
+                            returnUrl: Routes.Home.GetActionLink(Url));
+                    }
+                    else
+                    {
+                        switch (result)
+                        {
+                            case LoginResult.LockedOut:
+                                return this.JsonError(data: null, message: ValidationResources.User_Login_LockedOut);
+
+                            case LoginResult.RequiresVerification:
+                                return this.JsonError(data: null, message: ValidationResources.User_Login_RequiresVerification);
+
+                            case LoginResult.Failed:
+                            default:
+                                return this.JsonError(data: null, message: ValidationResources.User_Login_Failed);
+                        }
+                    }
                 }
                 else
                 {
-                    switch (result)
-                    {
-                        case LoginResult.Failed:
-                            this.AddModelError(ValidationResources.Login_Failed);
-                            break;
-
-                        case LoginResult.LockedOut:
-                            this.AddModelError(ValidationResources.Login_LockedOut);
-                            break;
-
-                        case LoginResult.RequiresVerification:
-                            this.AddModelError(ValidationResources.Login_RequiresVerification);
-                            break;
-                    }
+                    return this.JsonError(data: null, message: ValidationResources.Generic_ModelState_Error);
                 }
             }
-
-            return View(model);
+            catch (Exception e)
+            {
+                this.HandleError(e);
+                return this.JsonError(data: null, message: ValidationResources.Generic_Error);
+            }
         }
 
         [HttpGet]
@@ -80,7 +116,7 @@ namespace moonstone.ui.web.Controllers
         {
             this.Current.Services.LoginService.Logout();
 
-            var res = Routes.Logout;
+            var res = Routes.LoggedOut;
             return RedirectToAction(res.Action, res.Controller);
         }
 

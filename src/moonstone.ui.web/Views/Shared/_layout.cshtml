@@ -1,26 +1,112 @@
-﻿<!DOCTYPE html>
-
+﻿<!doctype html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>moonstone</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="~/semantic/dist/semantic.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/bower_components/flatpickr/dist/flatpickr.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/bower_components/toastr/toastr.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/dist/site.css" />
 
-    @Styles.Render("~/bundles/global/css")
-    @Scripts.Render("~/bundles/global/js")
+    <!-- js -->
+    <script type="text/javascript" src="~/bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="~/semantic/dist/semantic.min.js"></script>
+    <script type="text/javascript" src="~/bower_components/jquery-serialize-object/dist/jquery.serialize-object.min.js"></script>
+    <script type="text/javascript" src="~/bower_components/moment/min/moment.min.js"></script>
+    <script type="text/javascript" src="~/bower_components/flatpickr/dist/flatpickr.min.js"></script>
+    <script type="text/javascript" src="~/bower_components/toastr/toastr.min.js"></script>
+    <script type="text/javascript" src="~/js/site.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+        });
+    </script>
 </head>
-<body>
-    <div>
-        @RenderBody()
+<body class="ms-body">
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    @Html.AntiForgeryToken()
+    <header>
+
+        <div class="ui inverted menu ms-header-menu">
+            <div class="item">
+                <img src="~/img/logo.png" />
+            </div>
+            @if (User.Identity.IsAuthenticated)
+            {
+                @Html.Partial("_headerProfile")
+            }
+            else
+            {
+                @Html.Partial("_headerSignIn")
+            }
+        </div>
+    </header>
+
+    <div class="ms-main-content">
+        <div class="ui stackable grid">
+
+            <div class="row">
+                <div class="sixteen wide column">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <div class="ui container ms-icon-bar">
+                            <div class="ui compact icon menu">
+                                <a class="item" href="@Routes.Home.GetActionLink(Url)" data-content="Home">
+                                    <i class="home icon"></i>
+                                </a>
+
+                                <a class="item" href="@Routes.IndexTransactions.GetActionLink(Url)" data-content="Transactions">
+                                    <i class="alternative credit card icon"></i>
+                                </a>
+
+                                <a class="item" href="#" data-content="Dashboard">
+                                    <i class="pie chart icon"></i>
+                                </a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="sixteen wide column">
+                    <div class="ui container ms-main-container">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- User Profile thing - put in partial -->
-    <div>
-        @if (User.Identity.IsAuthenticated)
-        {
-            <a href="@Url.RouteUrl(Routes.Home)">@UIResources.Site_Home</a>
-            <a href="@Url.RouteUrl(Routes.Logout)">@UIResources.Profile_Logout</a>
-            <a href="@Url.RouteUrl(Routes.SelectGroup)">@UIResources.Profile_SelectGroup</a>
-        }
-    </div>
+    <footer>
+        <div class="ui horizontal divider">
+            <i class="anchor icon"></i>
+        </div>
+        <div class="ui center aligned container">
+
+            <p>Developed with <i class="heart icon red"></i>in Solothurn, Switzerland</p>
+            <p>Copyright &copy; @DateTime.UtcNow.Year David Szöke - <a href="http://schwindelig.ch">schwindelig.ch</a></p>
+        </div>
+    </footer>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    @*<script>
+            (function (b, o, i, l, e, r) {
+                b.GoogleAnalyticsObject = l; b[l] || (b[l] =
+                function () { (b[l].q = b[l].q || []).push(arguments) }); b[l].l = +new Date;
+                e = o.createElement(i); r = o.getElementsByTagName(i)[0];
+                e.src = 'https://www.google-analytics.com/analytics.js';
+                r.parentNode.insertBefore(e, r)
+            }(window, document, 'script', 'ga'));
+            ga('create', 'UA-XXXXX-X', 'auto'); ga('send', 'pageview');
+        </script>*@
 </body>
 </html>

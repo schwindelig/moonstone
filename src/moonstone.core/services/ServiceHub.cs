@@ -4,9 +4,11 @@
     {
         public IBankAccountService BankAccountService { get; protected set; }
         public ICategoryService CategoryService { get; protected set; }
+        public ICurrencyService CurrencyService { get; protected set; }
         public IEnvironmentService EnvironmentService { get; protected set; }
         public IGroupService GroupService { get; protected set; }
         public ILoginService LoginService { get; protected set; }
+        public ITransactionService TransactionService { get; protected set; }
         public IUserService UserService { get; protected set; }
 
         public ServiceHub(
@@ -15,7 +17,9 @@
             IUserService userService,
             IGroupService groupService,
             ICategoryService categoryService,
-            IBankAccountService bankAccountService)
+            IBankAccountService bankAccountService,
+            ITransactionService transactionService,
+            ICurrencyService currencyService)
         {
             this.LoginService = loginService;
             this.EnvironmentService = environmentService;
@@ -23,6 +27,8 @@
             this.GroupService = groupService;
             this.CategoryService = categoryService;
             this.BankAccountService = bankAccountService;
+            this.TransactionService = transactionService;
+            this.CurrencyService = currencyService;
         }
     }
 }

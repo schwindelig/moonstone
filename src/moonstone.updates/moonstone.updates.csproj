@@ -44,31 +44,43 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="sql\0.0.9.sql">
+    <Content Include="sql\0.0.013.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="sql\0.0.8.sql">
+    <Content Include="sql\0.0.012.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="sql\0.0.7.sql">
+    <Content Include="sql\0.0.011.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="sql\0.0.6.sql">
+    <Content Include="sql\0.0.010.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="sql\0.0.5.sql">
+    <Content Include="sql\0.0.009.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="sql\0.0.4.sql">
+    <Content Include="sql\0.0.008.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="sql\0.0.3.sql">
+    <Content Include="sql\0.0.007.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="sql\0.0.2.sql">
+    <Content Include="sql\0.0.006.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="sql\0.0.1.sql">
+    <Content Include="sql\0.0.005.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sql\0.0.004.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sql\0.0.003.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sql\0.0.002.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sql\0.0.001.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

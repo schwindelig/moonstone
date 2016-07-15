@@ -31,6 +31,12 @@ namespace moonstone.sql.configs
                 .WithPrimaryKey(p => p.UserId);
         }
 
+        public static SqlModelDescription<Transaction> Transaction()
+        {
+            return SqlModelDescription<Transaction>
+                .Auto("core", "transactions");
+        }
+
         public static SqlModelDescription<User> User()
         {
             return SqlModelDescription<User>
