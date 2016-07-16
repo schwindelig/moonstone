@@ -4,16 +4,23 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="required field">
+    <div class="field">
         @Html.LabelFor(m => m.Name)
-        @Html.TextBoxFor(m => m.Name)
-        @Html.ValidationMessageFor(m => m.Name)
+
+        <div class="ui left corner labeled input">
+            @Html.TextBoxFor(m => m.Name, new { autofocus = "autofocus" })
+            <div class="ui left corner label">
+                <i class="asterisk icon"></i>
+            </div>
+        </div>
+
+        @Html.MSValidationMessageFor(m => m.Name)
     </div>
 
     <div class="field">
         @Html.LabelFor(m => m.Description)
         @Html.TextAreaFor(m => m.Description, new { rows = 3 })
-        @Html.ValidationMessageFor(m => m.Description)
+        @Html.MSValidationMessageFor(m => m.Description)
     </div>
 
     <button class="ui positive submit button">@UIResources.BankAccount_Create_Button_Create</button>

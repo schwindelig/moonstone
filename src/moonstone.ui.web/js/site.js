@@ -39,8 +39,9 @@ function initSemanticUi() {
         }
     });
 
-    // profile dropdown in nav
+    // nav dropdowns
     $('.ms-nav-profile-dropdown').dropdown();
+    $('.ms-nav-group-dropdown').dropdown();
 
     // checkboxes
     $('ui.checkbox').checkbox();

@@ -45,3 +45,16 @@ footer {
 .ms-content-column {
     padding-top: 2em;
 }
+
+.ms-header-logo {
+    height: 40px;
+    width: 40px;
+}
+
+.ms-nav-group-dropdown i.dropdown.icon {
+    margin-left: 0.6em !important;
+}
+
+.field-validation-valid {
+    display: none !important;
+}
